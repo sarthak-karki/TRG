@@ -1,20 +1,7 @@
-import Header from './components/header';
-import Footer from './components/footer';
-
-import TeamPhoto from '../src/assets/team.jpg';
+import HomePage from './pages/HomePage';
 
 const App = () => {
-  return (
-    <div className="bg-white leading-tight font-sans w-full">
-      <Header />
-      <main className="block box-border w-full">
-        <div className="flex items-center w-full">
-          <img src={TeamPhoto} className="w-full"></img>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <HomePage />;
 };
 
 export default App;
