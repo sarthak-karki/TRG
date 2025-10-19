@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/TRG/static/css/main.115f8ee2.css",
-    "main.js": "/TRG/static/js/main.ccecdc56.js",
+    "main.js": "/TRG/static/js/main.02ad011d.js",
     "static/js/787.3f433414.chunk.js": "/TRG/static/js/787.3f433414.chunk.js",
     "static/media/team.jpg": "/TRG/static/media/team.c5b524fdb1afc0f7e2a9.jpg",
     "static/media/trgLogo.jpeg": "/TRG/static/media/trgLogo.26368469d56ccdab96fb.jpeg",
     "static/media/Sponsor1.jpeg": "/TRG/static/media/Sponsor1.6419fd051c2e53af99a1.jpeg",
     "index.html": "/TRG/index.html",
     "main.115f8ee2.css.map": "/TRG/static/css/main.115f8ee2.css.map",
-    "main.ccecdc56.js.map": "/TRG/static/js/main.ccecdc56.js.map",
+    "main.02ad011d.js.map": "/TRG/static/js/main.02ad011d.js.map",
     "787.3f433414.chunk.js.map": "/TRG/static/js/787.3f433414.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.115f8ee2.css",
-    "static/js/main.ccecdc56.js"
+    "static/js/main.02ad011d.js"
   ]
 }
