@@ -14,7 +14,7 @@ const Header: FunctionComponent = () => {
                 href="#"
                 className="text-indigo-900 text-sm h-full font-semibold"
               >
-                THE RISING GURKHAS GHActions
+                THE RISING GURKHAS
               </a>
             </li>
             <li className="mr-8">
