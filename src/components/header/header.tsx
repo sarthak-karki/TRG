@@ -1,7 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent } from "react";
 
-import KandelConsultancyLogo from '../../assets/Sponsor1.jpeg';
-import ClubLogo from '../../assets/trgLogo.jpeg';
+import KandelConsultancyLogo from "../../assets/Sponsor1.jpeg";
+import ClubLogo from "../../assets/trgLogo.jpeg";
 
 const Header: FunctionComponent = () => {
   return (
@@ -10,8 +10,11 @@ const Header: FunctionComponent = () => {
         <div className="md:flex justify-between items-center border-solid border-b h-12 w-full z-50">
           <ul className="flex list-none m-0 p-0 justify-center">
             <li className="mr-8">
-              <a href="#" className="text-indigo-900 text-sm h-full font-semibold">
-                THE RISING GURKHAS
+              <a
+                href="#"
+                className="text-indigo-900 text-sm h-full font-semibold"
+              >
+                THE RISING GURKHAS GHActions
               </a>
             </li>
             <li className="mr-8">
@@ -27,19 +30,29 @@ const Header: FunctionComponent = () => {
           <div className="flex items-center justify-center">
             <ul className="flex list-none m-0 p-0 justify-center border-solid border-r mr-8">
               <li className="mr-8">
-                <a href="#" className="text-indigo-900 text-sm h-full font-semibold">
+                <a
+                  href="#"
+                  className="text-indigo-900 text-sm h-full font-semibold"
+                >
                   SIGN IN
                 </a>
               </li>
               <li className="mr-8">
-                <a href="#" className="text-indigo-900 text-sm h-full font-semibold">
+                <a
+                  href="#"
+                  className="text-indigo-900 text-sm h-full font-semibold"
+                >
                   REGISTER
                 </a>
               </li>
             </ul>
             <ul className="flex list-none m-0 p-0 justify-center">
               <li className="m-0">
-                <a href="https://kandelconsultancy.com.au/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://kandelconsultancy.com.au/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="flex items-center justify-center h-8 w-24 bg-transparent">
                     <div className="contents">
                       <img src="https://img.chelseafc.com//image/upload/f_auto,c_pad,h_64,w_192/Partner Logos 2022/Low Resolution (Small File Size)/Nike_Swoosh_Black.png"></img>
@@ -48,7 +61,11 @@ const Header: FunctionComponent = () => {
                 </a>
               </li>
               <li className="m-0">
-                <a href="https://kandelconsultancy.com.au/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://kandelconsultancy.com.au/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="flex items-center justify-center h-8 w-24 bg-transparent">
                     <div className="contents">
                       <img src={KandelConsultancyLogo}></img>
