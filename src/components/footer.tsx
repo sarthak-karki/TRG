@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-import ClubLogo from "../assets/trgLogo.jpeg";
+import ClubLogo from "@app/assets/trgLogo.jpeg";
 
 const Footer: FunctionComponent = () => {
   return (

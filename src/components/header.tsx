@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
-import KandelConsultancyLogo from "../assets/Sponsor1.jpeg";
-import ClubLogo from "../assets/trgLogo.jpeg";
+import KandelConsultancyLogo from "@app/assets/Sponsor1.jpeg";
+import ClubLogo from "@app/assets/trgLogo.jpeg";
 
 const Header: FunctionComponent = () => {
   return (
