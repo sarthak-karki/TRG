@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent } from "react";
 
-import ClubLogo from '../../assets/trgLogo.jpeg';
+import ClubLogo from "../assets/trgLogo.jpeg";
 
 const Footer: FunctionComponent = () => {
   return (
@@ -194,7 +194,8 @@ const Footer: FunctionComponent = () => {
                 <div className="md:pt-4 pt-6">
                   <div className="block">
                     <p>
-                      Get unrivalled access to all things TRG with our official club app,
+                      Get unrivalled access to all things TRG with our official
+                      club app,
                       <strong>The 5th Stand"</strong>"."
                     </p>
                   </div>
@@ -249,8 +250,8 @@ const Footer: FunctionComponent = () => {
                 </nav>
               </div>
               <div className="py-6 border-solid border-b font-sans">
-                © 2022 TRG FC. All rights reserved. No part of this site may be reproduced without
-                our written permission.
+                © 2022 TRG FC. All rights reserved. No part of this site may be
+                reproduced without our written permission.
               </div>
             </div>
           </div>

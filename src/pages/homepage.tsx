@@ -1,7 +1,7 @@
-import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
+import Header from "../components/header";
+import Footer from "../components/footer";
 
-import TeamPhoto from '../../assets/team.jpg';
+import TeamPhoto from "../assets/team.jpg";
 
 const HomePage = () => {
   return (
