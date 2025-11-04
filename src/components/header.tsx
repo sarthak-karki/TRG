@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  clubName = "TRG FC",
+  clubName = "The Rising Gurkhas FC",
   tagline = "Pride • Passion • Performance",
   logoSrc = trgLogo,
 }) => {
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center justify-center gap-8 flex-wrap">
               {/* Team Logo using Avatar */}
               <div className="relative">
-                <Avatar className="w-32 h-32 border-4 border-yellow-500 shadow-[0_8px_20px_rgba(234,179,8,0.5)]">
+                <Avatar className="w-36 h-36">
                   <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
                   <AvatarFallback className="bg-white/90 text-indigo-900 text-xl font-bold">
                     <img
@@ -37,9 +37,7 @@ const Header: React.FC<HeaderProps> = ({
 
               {/* Header Text */}
               <div className="text-center space-y-2">
-                <h1 className="text-5xl font-bold uppercase tracking-[0.2em] text-white [text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]">
-                  {clubName}
-                </h1>
+                <h1 className="text-5xl font-bold text-white">{clubName}</h1>
                 <Badge
                   variant="outline"
                   className="text-lg px-4 py-1 border-yellow-500 text-yellow-500 bg-transparent hover:bg-yellow-500/10"
