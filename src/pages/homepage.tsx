@@ -1,7 +1,7 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "@app/components/header";
+import Footer from "@app/components/footer";
 
-import TeamPhoto from "../assets/team.jpg";
+import TeamPhoto from "@app/assets/team.jpg";
 
 const HomePage = () => {
   return (
