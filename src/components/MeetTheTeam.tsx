@@ -42,8 +42,6 @@ const players = [
 
 const cardStyle =
   "bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] mx-2 relative";
-const photoStyle =
-  "flex items-center justify-center w-full h-[300px] text-gray-400 text-xl font-semibold";
 const nameStyle = "text-2xl font-bold text-yellow-400 mb-1";
 const positionStyle = "text-lg text-white tracking-wide mb-6";
 const navBtnStyle =
