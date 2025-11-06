@@ -20,7 +20,7 @@ const Footer: FunctionComponent = () => {
             <div className="md:flex mb-14">
               <div className="pb-0 md:basis-4/12 md:border-b-0 border-b-2 border-solid pt-6 box-border">
                 <div className="text-white font-sans text-base font-bold leading-normal">
-                  The Rising Gurkhas
+                  TRGFC
                 </div>
                 <div className="box-border text-sm leading-normal mt-0">
                   <p>Sydney</p>
@@ -250,7 +250,7 @@ const Footer: FunctionComponent = () => {
                 </nav>
               </div>
               <div className="py-6 border-solid border-b font-sans">
-                © 2022 TRG FC. All rights reserved. No part of this site may be
+                © 2022 TRGFC. All rights reserved. No part of this site may be
                 reproduced without our written permission.
               </div>
             </div>

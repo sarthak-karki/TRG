@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  clubName = "The Rising Gurkhas FC",
+  clubName = "TRGFC",
   tagline = "Pride • Passion • Performance",
   logoSrc = trgLogo,
 }) => {
