@@ -45,7 +45,7 @@ const cardStyle =
 const nameStyle = "text-2xl font-bold text-yellow-400 mb-1";
 const positionStyle = "text-lg text-white tracking-wide mb-6";
 const navBtnStyle =
-  "absolute top-1/2 -translate-y-1/2 bg-yellow-400 text-indigo-900 rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer z-10";
+  "absolute top-1/2 -translate-y-1/2 bg-indigo-900 text-yellow-400 rounded-full w-12 h-12 flex items-center justify-center shadow-lg cursor-pointer z-10";
 
 const MeetTheTeam: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -64,8 +64,8 @@ const MeetTheTeam: React.FC = () => {
   const next = () => setCurrent((c) => (c === maxIndex ? 0 : c + 1));
 
   return (
-    <section className="bg-blue-900 py-12 px-0 w-full">
-      <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
+    <section className="bg-white py-12 px-0 w-full">
+      <h2 className="text-4xl font-bold text-indigo-900 text-center mb-8 uppercase tracking-wide">
         MEET THE TEAM
       </h2>
       <div className="relative flex items-center justify-center w-full max-w-5xl mx-auto">
@@ -128,7 +128,7 @@ const MeetTheTeam: React.FC = () => {
             <span
               key={idx}
               className={`w-4 h-4 rounded-full ${
-                idx === current ? "bg-yellow-400" : "bg-gray-400"
+                idx === current ? "bg-indigo-900" : "bg-gray-400"
               }`}
             />
           )

@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({
   logoSrc = trgLogo,
 }) => {
   return (
-    <header className="bg-indigo-900 border-b-4 border-yellow-500 py-8">
+    <header className="bg-white border-b-4 border-yellow-500 py-8">
       <div className="container mx-auto px-4">
         <Card className="bg-transparent border-none shadow-none">
           <CardContent className="p-0">
@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
 
               {/* Header Text */}
               <div className="text-center space-y-2">
-                <h1 className="text-5xl font-bold text-white">{clubName}</h1>
+                <h1 className="text-5xl font-bold text-indigo-900">{clubName}</h1>
                 <Badge
                   variant="outline"
                   className="text-lg px-4 py-1 border-yellow-500 text-yellow-500 bg-transparent hover:bg-yellow-500/10"
