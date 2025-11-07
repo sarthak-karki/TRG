@@ -10,57 +10,67 @@ import { Badge } from "@app/components/ui/badge";
 
 const Sponsors: React.FC = () => {
   return (
-    <section className="bg-blue-900 py-12 px-0 w-full">
-      <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
-        OUR SPONSORS
-      </h2>
+    <section className="bg-blue-900 py-16 px-0 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
+          OUR SPONSORS
+        </h2>
+        <p className="text-blue-200 text-center mb-12 text-sm md:text-base">
+          Thank you to our valued partners for their support
+        </p>
 
-      <div className="max-w-7xl mx-auto px-8 sm:px-12 md:px-16">
-        {/* Main sponsor */}
-        <div className="flex justify-center mb-12">
-          <Card className="w-full md:w-3/4 bg-white/95 hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl">
-            <CardContent className="p-8 md:p-12 flex items-center justify-center">
-              <img
-                src={mainSponsor}
-                alt="Main Sponsor"
-                className="h-32 md:h-40 object-contain"
-              />
-            </CardContent>
-          </Card>
+        {/* Main sponsor - Premium Tier */}
+        <div className="flex justify-center mb-16">
+          <div className="w-full max-w-md">
+            <div className="flex items-center justify-center mb-4">
+              <Badge className="text-sm px-6 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-bold border-none shadow-lg">
+                Premium Partner
+              </Badge>
+            </div>
+            <Card className="bg-white transition-all duration-300 shadow-2xl hover:shadow-3xl border-2 border-indigo-200/60 ring-4 ring-indigo-50 transform hover:scale-105 hover:z-10">
+              <CardContent className="p-2 md:p-2 flex items-center justify-center">
+                <img
+                  src={mainSponsor}
+                  alt="Main Sponsor"
+                  className="h-32 object-contain"
+                />
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Gold sponsors */}
-        <div className="mb-12">
-          <div className="flex items-center justify-center mb-6">
-            <Badge className="text-base px-4 py-1.5 bg-yellow-400 text-gray-900 font-semibold border-none">
+        <div className="mb-16">
+          <div className="flex items-center justify-center mb-8">
+            <Badge className="text-sm px-5 py-2 bg-yellow-400 text-gray-900 font-semibold border-none shadow-md">
               Gold Sponsors
             </Badge>
           </div>
-          <div className="flex flex-wrap justify-center items-stretch gap-6 md:gap-8">
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-40 md:w-48">
-              <CardContent className="p-6 flex items-center justify-center h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+              <CardContent className="p-6 flex items-center justify-center h-32">
                 <img
                   src={gold1}
                   alt="Gold Sponsor 1"
-                  className="max-h-16 max-w-full object-contain"
+                  className="max-h-20 w-auto object-contain"
                 />
               </CardContent>
             </Card>
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-40 md:w-48">
-              <CardContent className="p-6 flex items-center justify-center h-full">
+            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+              <CardContent className="p-4 flex items-center justify-center h-32">
                 <img
                   src={gold2}
                   alt="Gold Sponsor 2"
-                  className="max-h-16 max-w-full object-contain"
+                  className="max-h-20 max-w-full object-contain"
                 />
               </CardContent>
             </Card>
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-40 md:w-48">
-              <CardContent className="p-6 flex items-center justify-center h-full">
+            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+              <CardContent className="p-6 flex items-center justify-center h-32">
                 <img
                   src={gold3}
                   alt="Gold Sponsor 3"
-                  className="max-h-16 max-w-full object-contain"
+                  className="max-h-20 max-w-full object-contain"
                 />
               </CardContent>
             </Card>
@@ -69,14 +79,14 @@ const Sponsors: React.FC = () => {
 
         {/* Silver sponsors */}
         <div>
-          <div className="flex items-center justify-center mb-6">
-            <Badge className="text-base px-4 py-1.5 bg-gray-400 text-gray-900 font-semibold border-none">
+          <div className="flex items-center justify-center mb-8">
+            <Badge className="text-sm px-5 py-2 bg-gray-400 text-gray-900 font-semibold border-none shadow-md">
               Silver Sponsors
             </Badge>
           </div>
           <div className="flex justify-center">
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-40 md:w-48">
-              <CardContent className="p-6 flex items-center justify-center">
+            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48 md:w-56">
+              <CardContent className="p-6 flex items-center justify-center h-28">
                 <img
                   src={silver1}
                   alt="Silver Sponsor"
