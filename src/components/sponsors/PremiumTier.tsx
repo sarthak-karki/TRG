@@ -9,9 +9,9 @@ interface PremiumTierProps {
 
 const PremiumTier: React.FC<PremiumTierProps> = ({ logoSrc, logoAlt }) => {
   return (
-    <div className="flex justify-center mb-16">
+    <div className="flex justify-center mb-10">
       <div className="flex flex-col items-center">
-        <div className="flex items-center justify-center mb-10">
+        <div className="flex items-center justify-center mb-6">
           <SponsorTierBadge tier="premium" label="Premium Partner" />
         </div>
         <div className="border-2 border-indigo-200/60 ring-4 ring-indigo-50 rounded-lg">

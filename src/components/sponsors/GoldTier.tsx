@@ -11,8 +11,8 @@ interface GoldTierProps {
 
 const GoldTier: React.FC<GoldTierProps> = ({ sponsors }) => {
   return (
-    <div className="mb-16">
-      <div className="flex items-center justify-center mb-8">
+    <div className="mb-10">
+      <div className="flex items-center justify-center mb-6">
         <SponsorTierBadge tier="gold" label="Gold Sponsors" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">

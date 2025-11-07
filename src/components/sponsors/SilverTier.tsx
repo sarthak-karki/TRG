@@ -12,7 +12,7 @@ interface SilverTierProps {
 const SilverTier: React.FC<SilverTierProps> = ({ sponsors }) => {
   return (
     <div>
-      <div className="flex items-center justify-center mb-8">
+      <div className="flex items-center justify-center mb-6">
         <SponsorTierBadge tier="silver" label="Silver Sponsors" />
       </div>
       <div className="flex flex-wrap justify-center gap-6 md:gap-8">

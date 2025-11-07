@@ -22,12 +22,12 @@ const Sponsors: React.FC = () => {
   ];
 
   return (
-    <section className="bg-blue-900 py-16 px-0 w-full">
+    <section className="bg-blue-900 py-12 px-0 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
+        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-4 uppercase tracking-wide">
           OUR SPONSORS
         </h2>
-        <p className="text-blue-200 text-center mb-12 text-sm md:text-base">
+        <p className="text-blue-200 text-center mb-8 text-sm md:text-base">
           Thank you to our valued partners for their support
         </p>
 
