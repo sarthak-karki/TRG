@@ -53,21 +53,21 @@ const MeetTheTeam: React.FC = () => {
       <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
         MEET THE TEAM
       </h2>
-      <div className="relative flex items-center justify-center w-full max-w-5xl mx-auto px-16">
+      <div className="relative flex items-center justify-center w-full max-w-7xl mx-auto px-8 sm:px-12 md:px-16">
         <Carousel
           opts={{
             align: "start",
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-6 md:-ml-8">
+          <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
             {players.map((player) => (
               <CarouselItem
                 key={player.name}
-                className="pl-6 md:pl-8 basis-full md:basis-1/2"
+                className="pl-2 sm:pl-4 md:pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] relative">
-                  <CardContent className="flex flex-col items-center justify-between p-0 h-full">
+                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-full h-[400px] relative">
+                  <CardContent className="flex flex-col items-center justify-between p-0 h-full w-full">
                     <div
                       className="flex items-center justify-center w-full"
                       style={{ height: "70%" }}
@@ -89,11 +89,11 @@ const MeetTheTeam: React.FC = () => {
                     >
                       <Badge
                         variant="outline"
-                        className="text-2xl font-bold text-yellow-400 mb-1 bg-transparent border-none"
+                        className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1 bg-transparent border-none"
                       >
                         {player.name}
                       </Badge>
-                      <div className="text-lg text-white tracking-wide mb-6">
+                      <div className="text-base sm:text-lg text-white tracking-wide mb-6">
                         {player.position}
                       </div>
                     </div>
@@ -102,8 +102,8 @@ const MeetTheTeam: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-12 h-12 -left-6" />
-          <CarouselNext className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-12 h-12 -right-6" />
+          <CarouselPrevious className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -left-4 sm:-left-6" />
+          <CarouselNext className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -right-4 sm:-right-6" />
         </Carousel>
       </div>
     </section>
