@@ -47,11 +47,6 @@ const players = [
   },
 ];
 
-const cardStyle =
-  "bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] mx-2 relative";
-const nameStyle = "text-2xl font-bold text-yellow-400 mb-1";
-const positionStyle = "text-lg text-white tracking-wide mb-6";
-
 const MeetTheTeam: React.FC = () => {
   return (
     <section className="bg-blue-900 py-12 px-0 w-full">
@@ -68,8 +63,11 @@ const MeetTheTeam: React.FC = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {players.map((player) => (
-              <CarouselItem key={player.name} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className={cardStyle}>
+              <CarouselItem
+                key={player.name}
+                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+              >
+                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] mx-2 relative">
                   <CardContent className="flex flex-col items-center justify-between p-0 h-full">
                     <div
                       className="flex items-center justify-center w-full"
@@ -92,14 +90,13 @@ const MeetTheTeam: React.FC = () => {
                     >
                       <Badge
                         variant="outline"
-                        className={
-                          nameStyle +
-                          " bg-transparent border-none text-yellow-400 text-2xl font-bold mb-1"
-                        }
+                        className="text-2xl font-bold text-yellow-400 mb-1 bg-transparent border-none"
                       >
                         {player.name}
                       </Badge>
-                      <div className={positionStyle}>{player.position}</div>
+                      <div className="text-lg text-white tracking-wide mb-6">
+                        {player.position}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
