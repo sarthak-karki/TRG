@@ -16,9 +16,9 @@ const GoldTier: React.FC<GoldTierProps> = ({ sponsors }) => {
         <SponsorTierBadge tier="gold" label="Gold Sponsors" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-        {sponsors.map((sponsor, index) => (
+        {sponsors.map((sponsor) => (
           <SponsorCard
-            key={index}
+            key={sponsor.logoSrc}
             logoSrc={sponsor.logoSrc}
             logoAlt={sponsor.logoAlt}
             size="medium"

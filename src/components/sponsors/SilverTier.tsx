@@ -16,9 +16,9 @@ const SilverTier: React.FC<SilverTierProps> = ({ sponsors }) => {
         <SponsorTierBadge tier="silver" label="Silver Sponsors" />
       </div>
       <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-        {sponsors.map((sponsor, index) => (
+        {sponsors.map((sponsor) => (
           <SponsorCard
-            key={index}
+            key={sponsor.logoSrc}
             logoSrc={sponsor.logoSrc}
             logoAlt={sponsor.logoAlt}
             size="small"
