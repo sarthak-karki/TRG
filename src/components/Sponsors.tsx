@@ -21,18 +21,18 @@ const Sponsors: React.FC = () => {
 
         {/* Main sponsor - Premium Tier */}
         <div className="flex justify-center mb-16">
-          <div className="w-full max-w-md">
-            <div className="flex items-center justify-center mb-4">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center justify-center mb-10">
               <Badge className="text-sm px-6 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-bold border-none shadow-lg">
                 Premium Partner
               </Badge>
             </div>
-            <Card className="bg-white transition-all duration-300 shadow-2xl hover:shadow-3xl border-2 border-indigo-200/60 ring-4 ring-indigo-50 transform hover:scale-105 hover:z-10">
-              <CardContent className="p-2 md:p-2 flex items-center justify-center">
+            <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-indigo-200/60 ring-4 ring-indigo-50 transform hover:scale-105 hover:z-10 w-48 md:w-56">
+              <CardContent className="p-6 flex items-center justify-center h-32">
                 <img
                   src={mainSponsor}
                   alt="Main Sponsor"
-                  className="h-32 object-contain"
+                  className="max-h-20 w-auto object-contain"
                 />
               </CardContent>
             </Card>
@@ -47,7 +47,7 @@ const Sponsors: React.FC = () => {
             </Badge>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+            <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
               <CardContent className="p-6 flex items-center justify-center h-32">
                 <img
                   src={gold1}
@@ -56,7 +56,7 @@ const Sponsors: React.FC = () => {
                 />
               </CardContent>
             </Card>
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+            <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
               <CardContent className="p-4 flex items-center justify-center h-32">
                 <img
                   src={gold2}
@@ -65,7 +65,7 @@ const Sponsors: React.FC = () => {
                 />
               </CardContent>
             </Card>
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+            <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
               <CardContent className="p-6 flex items-center justify-center h-32">
                 <img
                   src={gold3}
@@ -85,7 +85,7 @@ const Sponsors: React.FC = () => {
             </Badge>
           </div>
           <div className="flex justify-center">
-            <Card className="bg-white/90 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48 md:w-56">
+            <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48 md:w-56">
               <CardContent className="p-6 flex items-center justify-center h-28">
                 <img
                   src={silver1}
