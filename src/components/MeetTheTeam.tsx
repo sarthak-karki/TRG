@@ -57,17 +57,16 @@ const MeetTheTeam: React.FC = () => {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
           }}
           className="w-full"
         >
-          <CarouselContent className="-ml-2 md:-ml-4">
+          <CarouselContent className="-ml-6 md:-ml-8">
             {players.map((player) => (
               <CarouselItem
                 key={player.name}
-                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+                className="pl-6 md:pl-8 basis-full md:basis-1/2"
               >
-                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] mx-2 relative">
+                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-80 h-[400px] relative">
                   <CardContent className="flex flex-col items-center justify-between p-0 h-full">
                     <div
                       className="flex items-center justify-center w-full"
