@@ -57,7 +57,6 @@ const MeetTheTeam: React.FC = () => {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
           }}
           className="w-full"
         >
