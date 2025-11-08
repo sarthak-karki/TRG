@@ -5,20 +5,15 @@ import gold1 from "@app/assets/sponsors/Rey Co Grp.png";
 import gold2 from "@app/assets/sponsors/arcAccountingSol.png";
 import gold3 from "@app/assets/sponsors/PacificVisa-Logo-Final.png";
 import silver1 from "@app/assets/sponsors/GoEasy png file .png";
-
-import PremiumTier from "./sponsors/PremiumTier";
-import GoldTier from "./sponsors/GoldTier";
-import SilverTier from "./sponsors/SilverTier";
+import { Card, CardContent } from "@app/components/ui/card";
 
 const Sponsors: React.FC = () => {
-  const goldSponsors = [
-    { logoSrc: gold1, logoAlt: "Gold Sponsor 1" },
-    { logoSrc: gold2, logoAlt: "Gold Sponsor 2" },
-    { logoSrc: gold3, logoAlt: "Gold Sponsor 3" },
-  ];
-
-  const silverSponsors = [
-    { logoSrc: silver1, logoAlt: "Silver Sponsor" },
+  const allSponsors = [
+    { logoSrc: mainSponsor, logoAlt: "Sponsor 1" },
+    { logoSrc: gold1, logoAlt: "Sponsor 2" },
+    { logoSrc: gold2, logoAlt: "Sponsor 3" },
+    { logoSrc: gold3, logoAlt: "Sponsor 4" },
+    { logoSrc: silver1, logoAlt: "Sponsor 5" },
   ];
 
   return (
@@ -31,9 +26,22 @@ const Sponsors: React.FC = () => {
           Thank you to our valued partners for their support
         </p>
 
-        <PremiumTier logoSrc={mainSponsor} logoAlt="Main Sponsor" />
-        <GoldTier sponsors={goldSponsors} />
-        <SilverTier sponsors={silverSponsors} />
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+          {allSponsors.map((sponsor) => (
+            <Card
+              key={sponsor.logoSrc}
+              className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48 md:w-56"
+            >
+              <CardContent className="p-6 flex items-center justify-center h-32">
+                <img
+                  src={sponsor.logoSrc}
+                  alt={sponsor.logoAlt}
+                  className="max-h-20 max-w-[90%] w-auto object-contain"
+                />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
