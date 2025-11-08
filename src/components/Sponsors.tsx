@@ -9,15 +9,35 @@ import { Card, CardContent } from "@app/components/ui/card";
 
 const Sponsors: React.FC = () => {
   const allSponsors = [
-    { logoSrc: mainSponsor, logoAlt: "arcHomeLoans" },
-    { logoSrc: gold1, logoAlt: "reyCoGrp" },
-    { logoSrc: gold2, logoAlt: "arcAccountingSol" },
-    { logoSrc: gold3, logoAlt: "pacificVisa" },
-    { logoSrc: silver1, logoAlt: "goEasy" },
+    {
+      logoSrc: mainSponsor,
+      logoAlt: "arcHomeLoans",
+      url: "https://arkhomeloans.com.au",
+    },
+    {
+      logoSrc: gold1,
+      logoAlt: "reyCoGrp",
+      url: "https://www.reyproperties.com.au",
+    },
+    {
+      logoSrc: gold2,
+      logoAlt: "arcAccountingSol",
+      url: "https://arkaccsol.com.au",
+    },
+    {
+      logoSrc: gold3,
+      logoAlt: "pacificVisa",
+      url: "https://pacificvisa.com.au",
+    },
+    {
+      logoSrc: silver1,
+      logoAlt: "goEasy",
+      url: "https://www.facebook.com/p/Go-Easy-driving-school-61570745462095",
+    },
   ];
 
   return (
-    <section className="bg-blue-900 py-12 px-0 w-full">
+    <div className="bg-blue-900 py-12 px-0 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <h2 className="text-4xl font-bold text-yellow-400 text-center mb-4 uppercase tracking-wide">
           OUR SPONSORS
@@ -28,22 +48,27 @@ const Sponsors: React.FC = () => {
 
         <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
           {allSponsors.map((sponsor) => (
-            <Card
+            <a
               key={sponsor.logoSrc}
-              className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48"
+              href={sponsor.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline"
             >
-              <CardContent className="p-6 flex items-center justify-center h-24">
-                <img
-                  src={sponsor.logoSrc}
-                  alt={sponsor.logoAlt}
-                  className="h-24 object-contain"
-                />
-              </CardContent>
-            </Card>
+              <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48">
+                <CardContent className="p-6 flex items-center justify-center h-24">
+                  <img
+                    src={sponsor.logoSrc}
+                    alt={sponsor.logoAlt}
+                    className="h-24 object-contain"
+                  />
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
