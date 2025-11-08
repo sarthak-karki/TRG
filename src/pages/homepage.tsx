@@ -9,19 +9,14 @@ const HomePage = () => {
   return (
     <div className="bg-white leading-tight font-sans w-full">
       <Header />
-      <main className="block box-border w-full">
-        <div className="flex items-center w-full">
-          <TeamPhoto />
-        </div>
-      </main>
+
+      <TeamPhoto />
 
       <MeetTheTeam />
 
       <Fixtures />
 
       <Sponsors />
-
-      {/* Sponsors */}
 
       <Footer />
     </div>
