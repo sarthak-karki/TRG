@@ -9,11 +9,11 @@ import { Card, CardContent } from "@app/components/ui/card";
 
 const Sponsors: React.FC = () => {
   const allSponsors = [
-    { logoSrc: mainSponsor, logoAlt: "Sponsor 1" },
-    { logoSrc: gold1, logoAlt: "Sponsor 2" },
-    { logoSrc: gold2, logoAlt: "Sponsor 3" },
-    { logoSrc: gold3, logoAlt: "Sponsor 4" },
-    { logoSrc: silver1, logoAlt: "Sponsor 5" },
+    { logoSrc: mainSponsor, logoAlt: "arcHomeLoans" },
+    { logoSrc: gold1, logoAlt: "reyCoGrp" },
+    { logoSrc: gold2, logoAlt: "arcAccountingSol" },
+    { logoSrc: gold3, logoAlt: "pacificVisa" },
+    { logoSrc: silver1, logoAlt: "goEasy" },
   ];
 
   return (
@@ -30,13 +30,13 @@ const Sponsors: React.FC = () => {
           {allSponsors.map((sponsor) => (
             <Card
               key={sponsor.logoSrc}
-              className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48 md:w-56"
+              className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48"
             >
-              <CardContent className="p-6 flex items-center justify-center h-32">
+              <CardContent className="p-6 flex items-center justify-center h-24">
                 <img
                   src={sponsor.logoSrc}
                   alt={sponsor.logoAlt}
-                  className="max-h-20 max-w-[90%] w-auto object-contain"
+                  className="h-24 object-contain"
                 />
               </CardContent>
             </Card>
