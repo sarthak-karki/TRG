@@ -10,6 +10,32 @@ import {
   CarouselPrevious,
 } from "@app/components/ui/carousel";
 
+import akashImg from "@app/assets/players/akash_malla.jpeg";
+import amrisImg from "@app/assets/players/amris_kharel.jpeg";
+import anishImg from "@app/assets/players/anish_shrestha.jpeg";
+import bikramImg from "@app/assets/players/bikram_shrestha.jpeg";
+import birajImg from "@app/assets/players/biraj_rai.jpeg";
+import bishalImg from "@app/assets/players/bishal_oli.jpeg";
+import bvusanImg from "@app/assets/players/bvusan_kc.jpeg";
+import chhiringImg from "@app/assets/players/chhiring_lama.jpeg";
+import enojImg from "@app/assets/players/enoj_neupane.jpeg";
+import frekkImg from "@app/assets/players/frekk.jpeg";
+import kumarImg from "@app/assets/players/kumar_bhandari.jpeg";
+import nabinImg from "@app/assets/players/nabin_kc.jpeg";
+import nirakarImg from "@app/assets/players/nirakar_pradhan.jpeg";
+import parasImg from "@app/assets/players/paras_thapa.jpg";
+import pranishImg from "@app/assets/players/pranish_ranjit.jpeg";
+import rinjijnImg from "@app/assets/players/rinjin_tamang.jpeg";
+import ritishImg from "@app/assets/players/ritish_ranjit.jpeg";
+import roshanLamicchaneImg from "@app/assets/players/roshan_lamichane.jpeg";
+import roshanShahiImg from "@app/assets/players/roshan_shahi.jpeg";
+import samipGauchanImg from "@app/assets/players/samip_gauchan.jpeg";
+import sanaKarkiImg from "@app/assets/players/sana_karki.jpg";
+import sanjeebBistaImg from "@app/assets/players/sanjeeb_bista.jpeg";
+import santoshTamangImg from "@app/assets/players/santosh_tamang.jpeg";
+import sunilBhandariImg from "@app/assets/players/sunil_bhandari.jpeg";
+import sunilKhawasImg from "@app/assets/players/sunil_khawas.jpeg";
+import sunilSharmaImg from "@app/assets/players/sunil_sharma.jpg";
 import sarthakImg from "@app/assets/players/sarthak.jpg";
 import sherabImg from "@app/assets/players/sherab.jpeg";
 import partyboyImg from "@app/assets/players/partyboy.jpeg";
@@ -21,31 +47,148 @@ const players = [
     photo: sarthakImg,
   },
   {
-    name: "Sheray",
-    position: "DEFENDER",
+    name: "Sherab Thapa Magar",
+    position: "FORWARD",
     photo: sherabImg,
   },
   {
-    name: "Party Boy",
-    position: "MIDFIELDER",
+    name: "Suman KC",
+    position: "GOALKEEPER",
     photo: partyboyImg,
   },
   {
-    name: "Samuel Lee",
+    name: "Akash Malla",
     position: "FORWARD",
-    photo: null,
+    photo: akashImg,
   },
   {
-    name: "David Kim",
+    name: "Amris Kharel",
     position: "DEFENDER",
-    photo: null,
+    photo: amrisImg,
   },
   {
-    name: "Lucas Silva",
+    name: "Anish Shrestha",
+    position: "DEFENDER",
+    photo: anishImg,
+  },
+  {
+    name: "Biraj Rai",
     position: "MIDFIELDER",
-    photo: null,
+    photo: birajImg,
+  },
+  {
+    name: "Bishal Oli",
+    position: "MIDFIELDER",
+    photo: bishalImg,
+  },
+  {
+    name: "BVusan KC",
+    position: "FORWARD",
+    photo: bvusanImg,
+  },
+  {
+    name: "Chhiring Lama",
+    position: "MIDFIELDER",
+    photo: chhiringImg,
+  },
+  {
+    name: "Enoj Neupane",
+    position: "FORWARD",
+    photo: enojImg,
+  },
+  {
+    name: "Frekk",
+    position: "MIDFIELDER",
+    photo: frekkImg,
+  },
+  {
+    name: "Kumar Bhandari",
+    position: "MIDFIELDER",
+    photo: kumarImg,
+  },
+  {
+    name: "Nabin KC",
+    position: "GOALKEEPER",
+    photo: nabinImg,
+  },
+  {
+    name: "Nirakar Pradhan",
+    position: "MIDFIELDER",
+    photo: nirakarImg,
+  },
+  {
+    name: "Paras Thapa",
+    position: "DEFENDER",
+    photo: parasImg,
+  },
+  {
+    name: "Pranish Ranjit",
+    position: "DEFENDER",
+    photo: pranishImg,
+  },
+  {
+    name: "Rinjijn Tamang",
+    position: "DEFENDER",
+    photo: rinjijnImg,
+  },
+  {
+    name: "Ritish Ranjit",
+    position: "DEFENDER",
+    photo: ritishImg,
+  },
+  {
+    name: "Roshan Lamichhane",
+    position: "FORWARD",
+    photo: roshanLamicchaneImg,
+  },
+  {
+    name: "Roshan Shahi",
+    position: "GOALKEEPER",
+    photo: roshanShahiImg,
+  },
+  {
+    name: "Samip Gauchan",
+    position: "GOALKEEPER",
+    photo: samipGauchanImg,
+  },
+  {
+    name: "Sana Karki",
+    position: "MIDFIELDER",
+    photo: sanaKarkiImg,
+  },
+  {
+    name: "Sanjeeb Bista",
+    position: "FORWARD",
+    photo: sanjeebBistaImg,
+  },
+  {
+    name: "Santosh Tamang",
+    position: "MIDFIELDER",
+    photo: santoshTamangImg,
+  },
+  {
+    name: "Sunil Bhandari",
+    position: "MIDFIELDER",
+    photo: sunilBhandariImg,
+  },
+  {
+    name: "Sunil Khawas",
+    position: "DEFENDER",
+    photo: sunilKhawasImg,
+  },
+  {
+    name: "Sunil Sharma",
+    position: "DEFENDER",
+    photo: sunilSharmaImg,
+  },
+  {
+    name: "Bikram Shrestha",
+    position: "MIDFIELDER",
+    photo: bikramImg,
   },
 ];
+
+const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 
 const MeetTheTeam: React.FC = () => {
   return (
@@ -61,7 +204,7 @@ const MeetTheTeam: React.FC = () => {
           className="w-full"
         >
           <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
-            {players.map((player) => (
+            {sortedPlayers.map((player) => (
               <CarouselItem
                 key={player.name}
                 className="pl-2 sm:pl-4 md:pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
