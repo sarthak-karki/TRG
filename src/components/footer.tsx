@@ -7,7 +7,7 @@ import TeamLogo from "@app/assets/trgLogo.jpeg";
 
 const Footer: FunctionComponent = () => {
   return (
-    <div className="bg-indigo-900 text-white py-12">
+    <div className="bg-indigo-900 text-white py-6">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Team Logo */}
