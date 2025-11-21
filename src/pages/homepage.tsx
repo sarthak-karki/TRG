@@ -2,7 +2,7 @@ import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import MeetTheTeam from "@app/components/MeetTheTeam";
 import TeamPhoto from "@app/components/TeamPhoto";
-import Fixtures from "@app/components/Fixtures";
+// import Fixtures from "@app/components/Fixtures";
 import Sponsors from "@app/components/Sponsors";
 
 const HomePage = () => {
@@ -14,7 +14,7 @@ const HomePage = () => {
 
       <MeetTheTeam />
 
-      <Fixtures />
+      {/* <Fixtures /> */}
 
       <Sponsors />
 
