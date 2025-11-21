@@ -5,7 +5,7 @@ import HomePage from "@app/pages/homepage";
 
 const App = () => {
   return (
-    <BrowserRouter basename="/TRG">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
