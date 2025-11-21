@@ -1,20 +1,15 @@
-import React from "react";
+import { FC } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@app/components/ui/avatar";
 import { Badge } from "@app/components/ui/badge";
 import { Card, CardContent } from "@app/components/ui/card";
 import trgLogo from "@app/assets/trgLogo.jpeg";
 
-interface HeaderProps {
-  clubName?: string;
-  tagline?: string;
-  logoSrc?: string;
-}
+const clubName = "The Rising Gurkhas FC";
+const smallClubName = "TRG FC";
+const tagline = "Pride • Passion • Performance";
+const logoSrc = trgLogo;
 
-const Header: React.FC<HeaderProps> = ({
-  clubName = "The Rising Gurkhas FC",
-  tagline = "Pride • Passion • Performance",
-  logoSrc = trgLogo,
-}) => {
+const Header: FC = () => {
   return (
     <header className="bg-indigo-900 border-b-4 border-yellow-500 py-8">
       <div className="container mx-auto px-4">
@@ -26,18 +21,23 @@ const Header: React.FC<HeaderProps> = ({
                 <Avatar className="w-36 h-36">
                   <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
                   <AvatarFallback className="bg-white/90 text-indigo-900 text-xl font-bold">
-                    <img
-                      src={trgLogo}
-                      alt="TRG Logo"
-                      className="w-full h-full object-contain"
-                    />
+                    {smallClubName}
                   </AvatarFallback>
                 </Avatar>
               </div>
 
               {/* Header Text */}
               <div className="text-center space-y-2">
-                <h1 className="text-5xl font-bold text-white">{clubName}</h1>
+                {/* Full club name - hidden on small screens */}
+                <h1 className="hidden sm:block text-5xl font-bold text-white">
+                  {clubName}
+                </h1>
+
+                {/* Small club name - visible only on small screens */}
+                <h1 className="sm:hidden text-4xl font-bold text-white">
+                  {smallClubName}
+                </h1>
+
                 <Badge
                   variant="outline"
                   className="text-lg px-4 py-1 border-yellow-500 text-yellow-500 bg-transparent hover:bg-yellow-500/10"
