@@ -36,9 +36,3 @@ Your app is ready to be deployed!
 
 Locally preview the production build.\
 This is useful for testing the production build before deployment.
-
-## Learn More
-
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
