@@ -76,7 +76,7 @@ const Header: FC = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="bg-white border-none hover:bg-gray-100 text-blue-900"
+                className="bg-white border-none hover:bg-gray-100 text-blue-900 h-12 w-12"
               >
                 <Menu className="h-6 w-6" />
               </Button>
