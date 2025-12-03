@@ -34,43 +34,26 @@ const Header: FC = () => {
   ];
 
   return (
-    <div className="bg-blue-900 border-b-4 border-yellow-500">
-      <div className="flex items-center lg:items-end justify-between py-4 px-4 md:px-10 gap-4">
-        {/* Team Logo on the Left */}
-        <div className="flex-shrink-0">
-          <a href="/">
-            <Avatar className="w-20 h-20 md:w-32 md:h-32">
-              <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
-              <AvatarFallback className="bg-white/90 text-blue-900 text-sm font-bold">
-                {smallClubName}
-              </AvatarFallback>
-            </Avatar>
-          </a>
-        </div>
+    <div className="sticky top-0 z-50 bg-blue-900 border-b-4 border-yellow-500">
+      <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between py-2 px-4 md:px-10 gap-2 lg:gap-4">
+        {/* Mobile Layout - Top Row */}
+        <div className="flex lg:hidden w-full justify-between items-center">
+          {/* Spacer for alignment */}
+          <div className="w-12"></div>
 
-        {/* Desktop Navigation Menu */}
-        <div className="hidden lg:block ml-auto">
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-2">
-              {menuItems.map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    className={
-                      navigationMenuTriggerStyle() +
-                      " text-white hover:text-yellow-500 text-base md:text-lg px-6 py-2 md:px-8 md:py-3"
-                    }
-                  >
-                    {item.label}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+          {/* Team Logo - Center on mobile */}
+          <div className="flex-shrink-0">
+            <a href="/">
+              <Avatar className="w-16 h-16">
+                <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
+                <AvatarFallback className="bg-white/90 text-blue-900 text-sm font-bold">
+                  {smallClubName}
+                </AvatarFallback>
+              </Avatar>
+            </a>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden ml-auto">
+          {/* Mobile Menu Button - Right */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
@@ -101,6 +84,52 @@ const Header: FC = () => {
               </nav>
             </SheetContent>
           </Sheet>
+        </div>
+
+        {/* Mobile Navigation - Compact menu below logo */}
+        <div className="lg:hidden flex gap-3 w-full justify-center pb-1">
+          {[menuItems[0], menuItems[1], menuItems[4]].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-white hover:text-yellow-500 text-sm font-semibold px-3 py-1 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Desktop Logo - Left */}
+        <div className="hidden lg:block flex-shrink-0">
+          <a href="/">
+            <Avatar className="w-24 h-24">
+              <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
+              <AvatarFallback className="bg-white/90 text-blue-900 text-sm font-bold">
+                {smallClubName}
+              </AvatarFallback>
+            </Avatar>
+          </a>
+        </div>
+
+        {/* Desktop Navigation Menu */}
+        <div className="hidden lg:block ml-auto">
+          <NavigationMenu>
+            <NavigationMenuList className="space-x-2">
+              {menuItems.map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink
+                    href={item.href}
+                    className={
+                      navigationMenuTriggerStyle() +
+                      " text-white hover:text-yellow-500 text-base md:text-lg px-6 py-2 md:px-8 md:py-3"
+                    }
+                  >
+                    {item.label}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </div>
     </div>
