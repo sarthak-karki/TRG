@@ -28,6 +28,7 @@ const Header: FC = () => {
   const menuItems = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
+    { href: "/news", label: "News" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact Us" },
   ];

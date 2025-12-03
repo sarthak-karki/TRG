@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@app/components/ui/card";
 import { Facebook, Instagram, Music, Mail } from "lucide-react";
-import { Button } from "@app/components/ui/button";
 
 const ContactUs: FC = () => {
   return (
