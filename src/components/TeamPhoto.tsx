@@ -11,14 +11,14 @@ const TeamPhoto: React.FC<TeamPhotProps> = ({
   className = "",
 }) => {
   return (
-    <div className="bg-blue-900 py-12">
-      <div className="max-w-5xl mx-auto px-16 flex justify-center">
-        <img
-          src={Team}
-          alt={alt}
-          className={`w-full max-w-4xl h-64 md:h-96 object-cover rounded-lg ${className}`}
-        />
-      </div>
+    <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-screen">
+      <img
+        src={Team}
+        alt={alt}
+        className={`w-full h-full object-cover ${className}`}
+      />
+
+      <div className="absolute inset-0 bg-black/10"></div>
     </div>
   );
 };

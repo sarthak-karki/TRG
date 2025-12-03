@@ -6,6 +6,7 @@ import gold2 from "@app/assets/sponsors/arcAccountingSol.png";
 import gold3 from "@app/assets/sponsors/PacificVisa-Logo-Final.png";
 import silver1 from "@app/assets/sponsors/GoEasy png file .png";
 import { Card, CardContent } from "@app/components/ui/card";
+import LazyLoad from "@app/core/LazyLoad";
 
 const Sponsors: React.FC = () => {
   const allSponsors = [
@@ -37,12 +38,12 @@ const Sponsors: React.FC = () => {
   ];
 
   return (
-    <div className="bg-blue-900 py-12 px-0 w-full">
+    <div className="bg-white py-12 px-0 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <h2 className="text-4xl font-bold text-yellow-400 text-center mb-4 uppercase tracking-wide">
+        <h2 className="text-4xl font-bold text-blue-900 text-center mb-4 uppercase tracking-wide">
           OUR SPONSORS
         </h2>
-        <p className="text-blue-200 text-center mb-8 text-sm md:text-base">
+        <p className="text-gray-600 text-center mb-8 text-sm md:text-base">
           Thank you to our valued partners for their support
         </p>
 
@@ -55,9 +56,9 @@ const Sponsors: React.FC = () => {
               rel="noopener noreferrer"
               className="no-underline"
             >
-              <Card className="bg-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48">
+              <Card className="bg-white border-2 border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-48">
                 <CardContent className="p-6 flex items-center justify-center h-24">
-                  <img
+                  <LazyLoad
                     src={sponsor.logoSrc}
                     alt={sponsor.logoAlt}
                     className="h-24 object-contain"

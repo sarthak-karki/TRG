@@ -192,8 +192,8 @@ const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 
 const MeetTheTeam: React.FC = () => {
   return (
-    <section className="bg-blue-900 py-12 px-0 w-full">
-      <h2 className="text-4xl font-bold text-yellow-400 text-center mb-8 uppercase tracking-wide">
+    <section className="bg-white py-12 px-0 w-full">
+      <h2 className="text-4xl font-bold text-blue-900 text-center mb-8 uppercase tracking-wide">
         MEET THE TEAM
       </h2>
       <div className="relative flex items-center justify-center w-full max-w-7xl mx-auto px-8 sm:px-12 md:px-16">
@@ -209,7 +209,7 @@ const MeetTheTeam: React.FC = () => {
                 key={player.name}
                 className="pl-2 sm:pl-4 md:pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-lg border border-gray-400 flex flex-col items-center justify-between p-0 w-full h-[400px] relative">
+                <Card className="bg-white rounded-xl shadow-lg border-2 border-blue-200 flex flex-col items-center justify-between p-0 w-full h-[400px] relative">
                   <CardContent className="flex flex-col items-center justify-between p-0 h-full w-full">
                     <div
                       className="flex items-center justify-center w-full"
@@ -221,22 +221,22 @@ const MeetTheTeam: React.FC = () => {
                           alt={player.name}
                           className="object-cover w-full h-full rounded-xl"
                         />
-                        <AvatarFallback className="bg-gray-700 text-gray-400 text-xl font-semibold w-full h-full rounded-xl flex items-center justify-center">
+                        <AvatarFallback className="bg-slate-100 text-gray-400 text-xl font-semibold w-full h-full rounded-xl flex items-center justify-center">
                           [Player Photo]
                         </AvatarFallback>
                       </Avatar>
                     </div>
                     <div
-                      className="w-full bg-blue-800 py-4 rounded-b-xl text-center"
+                      className="w-full bg-gradient-to-r from-blue-900 to-blue-700 py-4 rounded-b-xl text-center"
                       style={{ height: "30%" }}
                     >
                       <Badge
                         variant="outline"
-                        className="text-xl sm:text-2xl font-bold text-yellow-400 mb-1 bg-transparent border-none"
+                        className="text-xl sm:text-2xl font-bold text-white mb-1 bg-transparent border-none"
                       >
                         {player.name}
                       </Badge>
-                      <div className="text-base sm:text-lg text-white tracking-wide mb-6">
+                      <div className="text-base sm:text-lg text-yellow-400 tracking-wide mb-6">
                         {player.position}
                       </div>
                     </div>
@@ -245,8 +245,8 @@ const MeetTheTeam: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -left-4 sm:-left-6" />
-          <CarouselNext className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -right-4 sm:-right-6" />
+          <CarouselPrevious className="bg-yellow-400 text-blue-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -left-4 sm:-left-6" />
+          <CarouselNext className="bg-yellow-400 text-blue-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -right-4 sm:-right-6" />
         </Carousel>
       </div>
     </section>
