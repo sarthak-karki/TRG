@@ -17,8 +17,6 @@ const TeamPhoto: React.FC<TeamPhotProps> = ({
         alt={alt}
         className={`w-full h-full object-cover ${className}`}
       />
-
-      <div className="absolute inset-0 bg-black/10"></div>
     </div>
   );
 };
