@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@app/components/ui/avatar";
 import {
   NavigationMenu,
@@ -43,14 +44,14 @@ const Header: FC = () => {
 
           {/* Team Logo - Center on mobile */}
           <div className="flex-shrink-0">
-            <a href="/">
+            <Link to="/">
               <Avatar className="w-16 h-16">
                 <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
                 <AvatarFallback className="bg-white/90 text-blue-900 text-sm font-bold">
                   {smallClubName}
                 </AvatarFallback>
               </Avatar>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button - Right */}
@@ -72,14 +73,14 @@ const Header: FC = () => {
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-8">
                 {menuItems.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => setOpen(false)}
                     className="text-xl font-semibold text-blue-900 hover:text-yellow-500 py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </SheetContent>
@@ -89,26 +90,26 @@ const Header: FC = () => {
         {/* Mobile Navigation - Compact menu below logo */}
         <div className="lg:hidden flex gap-3 w-full justify-center pb-1">
           {[menuItems[0], menuItems[1], menuItems[4]].map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="text-white hover:text-yellow-500 text-sm font-semibold px-3 py-1 transition-colors"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Desktop Logo - Left */}
         <div className="hidden lg:block flex-shrink-0">
-          <a href="/">
+          <Link to="/">
             <Avatar className="w-24 h-24">
               <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
               <AvatarFallback className="bg-white/90 text-blue-900 text-sm font-bold">
                 {smallClubName}
               </AvatarFallback>
             </Avatar>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation Menu */}
@@ -117,14 +118,16 @@ const Header: FC = () => {
             <NavigationMenuList className="space-x-2">
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    className={
-                      navigationMenuTriggerStyle() +
-                      " text-white hover:text-yellow-500 text-base md:text-lg px-6 py-2 md:px-8 md:py-3"
-                    }
-                  >
-                    {item.label}
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to={item.href}
+                      className={
+                        navigationMenuTriggerStyle() +
+                        " text-white hover:text-yellow-500 text-base md:text-lg px-6 py-2 md:px-8 md:py-3"
+                      }
+                    >
+                      {item.label}
+                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
