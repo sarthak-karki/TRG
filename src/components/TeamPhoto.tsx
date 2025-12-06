@@ -10,9 +10,9 @@ const TeamPhoto: React.FC<TeamPhotProps> = ({
   className = "",
 }) => {
   return (
-    <div className="relative w-full h-[50vh] md:h-[80vh]">
+    <div className="relative w-full h-[50vh] md:h-[70vh]">
       <img
-        src="https://scontent.fsyd14-1.fna.fbcdn.net/v/t39.30808-6/475306238_1077319397765997_153805934222255214_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeGN2RuOtj5euVGZtyDBNXd0l7LJHYsalPyXsskdixqU_Gxt5KqQ47QfyNSHncAI_dY&_nc_ohc=IzQSpn7829sQ7kNvwF2IHPC&_nc_oc=AdnYh2EuvSRsbSg3HEPKOwPw0W6mvPCek-TZfAAJ2gW1j2ZThDi9oXYWwDqPfGoFjPzJRvsz_e3kT9LaUh2ksaRl&_nc_zt=23&_nc_ht=scontent.fsyd14-1.fna&_nc_gid=SfczWiJC6Ghq_OjlL6QYRw&oh=00_AfmBP9VtlU1f6NXQZlK549vQ2vgqez3V2Fj_KlEcd0cpOQ&oe=6939FBD6"
+        src="https://scontent.fsyd14-1.fna.fbcdn.net/v/t39.30808-6/594004410_1342671617897439_7498109603810253120_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFEG0-5JaO4oGKsLL1hAAvB9PLU3jDxyN_08tTeMPHI34TDepVtdaaHIZIklhaRiiU&_nc_ohc=5SNfRk9hz1sQ7kNvwENnbeu&_nc_oc=AdnLDr1zDh8iB-2VKpJ6w9eu2Q__IA97mpLJDW2LkAwSw93HXWthkw2haBbCHbzuSnbil3uQjrOgBaOiyT3cP0T7&_nc_zt=23&_nc_ht=scontent.fsyd14-1.fna&_nc_gid=UEGaVQ-MESME1pBjXYActQ&oh=00_Afkr2UFlLCSo1A_A8_OjLIVE5dDzrjqZHfSM9uZTtXOwLw&oe=6939E3F7"
         alt={alt}
         className={`w-full h-full object-cover ${className}`}
       />
