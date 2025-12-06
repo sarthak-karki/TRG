@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@app/components/ui/card";
-import { Facebook, Instagram, Music, Mail } from "lucide-react";
+import { Facebook, Instagram, Music, Mail, Phone } from "lucide-react";
 
 const ContactUs: FC = () => {
   return (
@@ -41,11 +41,33 @@ const ContactUs: FC = () => {
                 to reach out to us via email.
               </p>
               <a
-                href="mailto:risinggurkhasfc@gmail.com"
+                href="mailto:trgfc2012@gmail.com"
                 className="inline-flex items-center gap-2 text-xl font-semibold text-blue-900 hover:text-blue-700 transition-colors"
               >
                 <Mail className="w-6 h-6" />
-                risinggurkhasfc@gmail.com
+                trgfc2012@gmail.com
+              </a>
+            </CardContent>
+          </Card>
+
+          {/* Phone Contact Card */}
+          <Card className="border-2 border-blue-200 shadow-xl">
+            <CardHeader className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+              <CardTitle className="text-2xl flex items-center gap-3">
+                <Phone className="w-7 h-7" />
+                Call Us
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Reach out to us directly
+              </p>
+              <a
+                href="tel:+1234567890"
+                className="inline-flex items-center gap-2 text-lg font-semibold text-blue-900 hover:text-blue-700 transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                +61 422 156 518
               </a>
             </CardContent>
           </Card>

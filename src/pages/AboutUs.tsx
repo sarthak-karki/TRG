@@ -66,20 +66,56 @@ const AboutUs: FC = () => {
                 Recent Achievements
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 text-xl">
-                  <span className="text-4xl">🏆</span>
-                  <span className="font-semibold text-gray-900">
-                    GNC Cup - Champions
-                  </span>
-                </div>
-                <div className="flex items-center gap-4 text-xl">
-                  <span className="text-4xl">🥈</span>
-                  <span className="font-semibold text-gray-900">
-                    Maccha Cup - Runner-up
-                  </span>
-                </div>
+            <CardContent className="pt-6 space-y-4">
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">Rewati Cup</span>
+                <span className="text-4xl">🥇🥈🥇🥇🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">R&S Cup</span>
+                <span className="text-4xl">🥇🥇🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">NAWS Cup</span>
+                <span className="text-4xl">🥈🥇🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">Buddha Cup</span>
+                <span className="text-4xl">🥇🥈</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">Fewa Cup</span>
+                <span className="text-4xl">🥇🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">MIT Cup</span>
+                <span className="text-4xl">🥈🥉</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">MFC Cup</span>
+                <span className="text-4xl">🥇🥉</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">Thakali Cup</span>
+                <span className="text-4xl">🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">TRCC Cup</span>
+                <span className="text-4xl">🥇🥈</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">
+                  Canberra Cup
+                </span>
+                <span className="text-4xl">🥇</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">GNC Shield</span>
+                <span className="text-4xl">🥈🥈🥈🥉</span>
+              </div>
+              <div className="flex items-center gap-4 text-xl">
+                <span className="font-semibold text-gray-900">Sahara Cup</span>
+                <span className="text-4xl">🥈🥇</span>
               </div>
             </CardContent>
           </Card>

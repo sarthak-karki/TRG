@@ -57,7 +57,7 @@ const LazyLoad: React.FC<LazyLoadProps> = ({
         <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
       )}
       <img
-        src={isInView ? src : placeholder}
+        src={isInView ? src : placeholder || undefined}
         alt={alt}
         className={`${className} transition-opacity duration-500 ${
           isLoaded ? "opacity-100" : "opacity-0"

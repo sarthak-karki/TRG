@@ -30,7 +30,6 @@ const Header: FC = () => {
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
     { href: "/news", label: "News" },
-    { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact Us" },
   ];
 
@@ -43,7 +42,7 @@ const Header: FC = () => {
           <div className="w-12"></div>
 
           {/* Team Logo - Center on mobile */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 pt-2">
             <Link to="/">
               <Avatar className="w-16 h-16">
                 <AvatarImage src={logoSrc} alt={`${clubName} Logo`} />
@@ -88,8 +87,8 @@ const Header: FC = () => {
         </div>
 
         {/* Mobile Navigation - Compact menu below logo */}
-        <div className="lg:hidden flex gap-3 w-full justify-center pb-1">
-          {[menuItems[0], menuItems[1], menuItems[4]].map((item) => (
+        <div className="lg:hidden flex gap-3 w-full justify-center pt-2">
+          {menuItems.map((item) => (
             <Link
               key={item.href}
               to={item.href}
