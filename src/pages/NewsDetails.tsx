@@ -14,8 +14,10 @@ import { Calendar, ArrowLeft } from "lucide-react";
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import newsItems from "@app/data/news.json";
+import jerseyRevealImage from "@app/assets/jerseyReveal.jpg";
 
 const NewsDetails: FC = () => {
+  console.log("Jersey Reveal Image URL:", jerseyRevealImage);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -64,6 +66,10 @@ const NewsDetails: FC = () => {
     return colors[category] || "bg-gray-100 text-gray-800";
   };
 
+  const getNewsImage = (item: (typeof newsItems)[0]) => {
+    return item.id === 3 ? jerseyRevealImage : item.image;
+  };
+
   return (
     <div className="bg-gradient-to-b from-slate-50 to-slate-100 min-h-screen leading-tight font-sans w-full">
       <Header />
@@ -84,7 +90,7 @@ const NewsDetails: FC = () => {
           {/* Featured Image */}
           <div className="w-full h-96 overflow-hidden">
             <img
-              src={newsItem.image}
+              src={getNewsImage(newsItem)}
               alt={newsItem.title}
               className="w-full h-full object-cover"
             />
@@ -137,7 +143,7 @@ const NewsDetails: FC = () => {
                 >
                   <div className="relative overflow-hidden">
                     <img
-                      src={relatedNews.image}
+                      src={getNewsImage(relatedNews)}
                       alt={relatedNews.title}
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                     />

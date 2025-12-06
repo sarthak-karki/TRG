@@ -12,6 +12,7 @@ import { Calendar, ChevronRight } from "lucide-react";
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import newsItems from "@app/data/news.json";
+import jerseyRevealImage from "@app/assets/jerseyReveal.jpg";
 
 const News: FC = () => {
   const navigate = useNavigate();
@@ -33,6 +34,10 @@ const News: FC = () => {
       Community: "bg-pink-100 text-pink-800 hover:bg-pink-200",
     };
     return colors[category] || "bg-gray-100 text-gray-800 hover:bg-gray-200";
+  };
+
+  const getNewsImage = (item: (typeof newsItems)[0]) => {
+    return item.id === 3 ? jerseyRevealImage : item.image;
   };
 
   return (
@@ -59,7 +64,7 @@ const News: FC = () => {
             <div className="md:flex">
               <div className="md:w-1/2">
                 <img
-                  src={newsItems[0].image}
+                  src={getNewsImage(newsItems[0])}
                   alt={newsItems[0].title}
                   className="w-full h-64 md:h-96 object-cover"
                 />
@@ -103,7 +108,7 @@ const News: FC = () => {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={news.image}
+                  src={getNewsImage(news)}
                   alt={news.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
