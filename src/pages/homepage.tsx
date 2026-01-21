@@ -1,23 +1,24 @@
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import MeetTheTeam from "@app/components/MeetTheTeam";
-import TeamPhoto from "@app/components/TeamPhoto";
-// import Fixtures from "@app/components/Fixtures";
+import Hero from "@app/components/TeamPhoto";
 import Sponsors from "@app/components/Sponsors";
 
 const HomePage = () => {
   return (
-    <div className="bg-white leading-tight font-sans w-full">
+    <div className="bg-[#0a1929] leading-tight font-sans w-full min-h-screen">
       <Header />
 
-      <TeamPhoto />
+      {/* Full-screen Hero Section */}
+      <Hero />
 
+      {/* Meet The Team Section */}
       <MeetTheTeam />
 
-      {/* <Fixtures /> */}
-
+      {/* Sponsors Section */}
       <Sponsors />
 
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,5 +1,4 @@
-import React from "react";
-import { Card, CardContent } from "@app/components/ui/card";
+import React, { useState } from "react";
 import { Badge } from "@app/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@app/components/ui/avatar";
 import {
@@ -9,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@app/components/ui/carousel";
+import { Users, Shield, Target, Disc } from "lucide-react";
 
 import akashImg from "@app/assets/players/akash_malla.jpeg";
 import amrisImg from "@app/assets/players/amris_kharel.jpeg";
@@ -40,215 +40,225 @@ import sarthakImg from "@app/assets/players/sarthak.jpg";
 import sherabImg from "@app/assets/players/sherab.jpeg";
 import partyboyImg from "@app/assets/players/partyboy.jpeg";
 
-const players = [
-  {
-    name: "Sarthak Karki",
-    position: "DEFENDER",
-    photo: sarthakImg,
-  },
-  {
-    name: "Sherab Thapa Magar",
-    position: "FORWARD",
-    photo: sherabImg,
-  },
-  {
-    name: "Suman KC",
-    position: "GOALKEEPER",
-    photo: partyboyImg,
-  },
-  {
-    name: "Akash Malla",
-    position: "FORWARD",
-    photo: akashImg,
-  },
-  {
-    name: "Amris Kharel",
-    position: "DEFENDER",
-    photo: amrisImg,
-  },
-  {
-    name: "Anish Shrestha",
-    position: "DEFENDER",
-    photo: anishImg,
-  },
-  {
-    name: "Biraj Rai",
-    position: "MIDFIELDER",
-    photo: birajImg,
-  },
-  {
-    name: "Bishal Oli",
-    position: "MIDFIELDER",
-    photo: bishalImg,
-  },
-  {
-    name: "BVusan KC",
-    position: "FORWARD",
-    photo: bvusanImg,
-  },
-  {
-    name: "Chhiring Lama",
-    position: "MIDFIELDER",
-    photo: chhiringImg,
-  },
-  {
-    name: "Enoj Neupane",
-    position: "FORWARD",
-    photo: enojImg,
-  },
-  {
-    name: "Frekk",
-    position: "MIDFIELDER",
-    photo: frekkImg,
-  },
-  {
-    name: "Kumar Bhandari",
-    position: "MIDFIELDER",
-    photo: kumarImg,
-  },
-  {
-    name: "Nabin KC",
-    position: "GOALKEEPER",
-    photo: nabinImg,
-  },
-  {
-    name: "Nirakar Pradhan",
-    position: "MIDFIELDER",
-    photo: nirakarImg,
-  },
-  {
-    name: "Paras Thapa",
-    position: "DEFENDER",
-    photo: parasImg,
-  },
-  {
-    name: "Pranish Ranjit",
-    position: "DEFENDER",
-    photo: pranishImg,
-  },
-  {
-    name: "Rinjijn Tamang",
-    position: "DEFENDER",
-    photo: rinjijnImg,
-  },
-  {
-    name: "Ritish Ranjit",
-    position: "DEFENDER",
-    photo: ritishImg,
-  },
-  {
-    name: "Roshan Lamichhane",
-    position: "FORWARD",
-    photo: roshanLamicchaneImg,
-  },
-  {
-    name: "Roshan Shahi",
-    position: "GOALKEEPER",
-    photo: roshanShahiImg,
-  },
-  {
-    name: "Samip Gauchan",
-    position: "GOALKEEPER",
-    photo: samipGauchanImg,
-  },
-  {
-    name: "Sana Karki",
-    position: "MIDFIELDER",
-    photo: sanaKarkiImg,
-  },
-  {
-    name: "Sanjeeb Bista",
-    position: "FORWARD",
-    photo: sanjeebBistaImg,
-  },
-  {
-    name: "Santosh Tamang",
-    position: "MIDFIELDER",
-    photo: santoshTamangImg,
-  },
-  {
-    name: "Sunil Bhandari",
-    position: "MIDFIELDER",
-    photo: sunilBhandariImg,
-  },
-  {
-    name: "Sunil Khawas",
-    position: "DEFENDER",
-    photo: sunilKhawasImg,
-  },
-  {
-    name: "Sunil Sharma",
-    position: "DEFENDER",
-    photo: sunilSharmaImg,
-  },
-  {
-    name: "Bikram Shrestha",
-    position: "MIDFIELDER",
-    photo: bikramImg,
-  },
+type Position = "GOALKEEPER" | "DEFENDER" | "MIDFIELDER" | "FORWARD";
+
+interface Player {
+  name: string;
+  position: Position;
+  photo: string;
+}
+
+const players: Player[] = [
+  { name: "Sarthak Karki", position: "DEFENDER", photo: sarthakImg },
+  { name: "Sherab Thapa Magar", position: "FORWARD", photo: sherabImg },
+  { name: "Suman KC", position: "GOALKEEPER", photo: partyboyImg },
+  { name: "Akash Malla", position: "FORWARD", photo: akashImg },
+  { name: "Amris Kharel", position: "DEFENDER", photo: amrisImg },
+  { name: "Anish Shrestha", position: "DEFENDER", photo: anishImg },
+  { name: "Biraj Rai", position: "MIDFIELDER", photo: birajImg },
+  { name: "Bishal Oli", position: "MIDFIELDER", photo: bishalImg },
+  { name: "Bhusan KC", position: "FORWARD", photo: bvusanImg },
+  { name: "Chhiring Lama", position: "MIDFIELDER", photo: chhiringImg },
+  { name: "Enoj Neupane", position: "FORWARD", photo: enojImg },
+  { name: "Frekk", position: "MIDFIELDER", photo: frekkImg },
+  { name: "Kumar Bhandari", position: "MIDFIELDER", photo: kumarImg },
+  { name: "Nabin KC", position: "GOALKEEPER", photo: nabinImg },
+  { name: "Nirakar Pradhan", position: "MIDFIELDER", photo: nirakarImg },
+  { name: "Paras Thapa", position: "DEFENDER", photo: parasImg },
+  { name: "Pranish Ranjit", position: "DEFENDER", photo: pranishImg },
+  { name: "Rinjijn Tamang", position: "DEFENDER", photo: rinjijnImg },
+  { name: "Ritish Ranjit", position: "DEFENDER", photo: ritishImg },
+  { name: "Roshan Lamichhane", position: "FORWARD", photo: roshanLamicchaneImg },
+  { name: "Roshan Shahi", position: "GOALKEEPER", photo: roshanShahiImg },
+  { name: "Samip Gauchan", position: "GOALKEEPER", photo: samipGauchanImg },
+  { name: "Sana Karki", position: "MIDFIELDER", photo: sanaKarkiImg },
+  { name: "Sanjeeb Bista", position: "FORWARD", photo: sanjeebBistaImg },
+  { name: "Santosh Tamang", position: "MIDFIELDER", photo: santoshTamangImg },
+  { name: "Sunil Bhandari", position: "MIDFIELDER", photo: sunilBhandariImg },
+  { name: "Sunil Khawas", position: "DEFENDER", photo: sunilKhawasImg },
+  { name: "Sunil Sharma", position: "DEFENDER", photo: sunilSharmaImg },
+  { name: "Bikram Shrestha", position: "MIDFIELDER", photo: bikramImg },
 ];
+
+const positionConfig: Record<Position, { color: string; bgColor: string; icon: React.ReactNode }> = {
+  GOALKEEPER: {
+    color: "text-amber-400",
+    bgColor: "bg-amber-500/20 border-amber-500/40",
+    icon: <Disc className="w-4 h-4" />,
+  },
+  DEFENDER: {
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/20 border-blue-500/40",
+    icon: <Shield className="w-4 h-4" />,
+  },
+  MIDFIELDER: {
+    color: "text-green-400",
+    bgColor: "bg-green-500/20 border-green-500/40",
+    icon: <Users className="w-4 h-4" />,
+  },
+  FORWARD: {
+    color: "text-red-400",
+    bgColor: "bg-red-500/20 border-red-500/40",
+    icon: <Target className="w-4 h-4" />,
+  },
+};
 
 const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 
 const MeetTheTeam: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState<Position | "ALL">("ALL");
+
+  const filteredPlayers = activeFilter === "ALL"
+    ? sortedPlayers
+    : sortedPlayers.filter((p) => p.position === activeFilter);
+
+  const positionCounts = {
+    ALL: players.length,
+    GOALKEEPER: players.filter((p) => p.position === "GOALKEEPER").length,
+    DEFENDER: players.filter((p) => p.position === "DEFENDER").length,
+    MIDFIELDER: players.filter((p) => p.position === "MIDFIELDER").length,
+    FORWARD: players.filter((p) => p.position === "FORWARD").length,
+  };
+
   return (
-    <section className="bg-white py-12 px-0 w-full">
-      <h2 className="text-4xl font-bold text-blue-900 text-center mb-8 uppercase tracking-wide">
-        MEET THE TEAM
-      </h2>
+    <section className="relative bg-[#0a1929] py-20 px-0 w-full overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+          backgroundSize: "40px 40px",
+        }} />
+      </div>
+
+      {/* Section Header */}
+      <div className="relative z-10 text-center mb-12 px-4">
+        <span className="inline-block px-4 py-1 mb-4 text-[#f5a623] text-sm font-semibold uppercase tracking-widest border border-[#f5a623]/30 rounded-full bg-[#f5a623]/5">
+          Our Squad
+        </span>
+        <h2 className="text-headline text-white mb-4">
+          MEET THE <span className="gradient-text-gold">TEAM</span>
+        </h2>
+        <p className="text-white/60 max-w-2xl mx-auto">
+          The warriors who carry the Gurkha spirit onto the pitch every match day
+        </p>
+
+        {/* Position Filters */}
+        <div className="flex flex-wrap justify-center gap-2 mt-8">
+          {(["ALL", "GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const).map((pos) => (
+            <button
+              key={pos}
+              onClick={() => setActiveFilter(pos)}
+              className={`px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+                activeFilter === pos
+                  ? "bg-[#f5a623] text-[#0a1929]"
+                  : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+              }`}
+            >
+              {pos !== "ALL" && positionConfig[pos].icon}
+              {pos === "ALL" ? "All Players" : pos}
+              <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                activeFilter === pos ? "bg-[#0a1929]/20" : "bg-white/10"
+              }`}>
+                {positionCounts[pos]}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Players Carousel */}
       <div className="relative flex items-center justify-center w-full max-w-7xl mx-auto px-8 sm:px-12 md:px-16">
         <Carousel
           opts={{
             align: "start",
+            loop: true,
           }}
           className="w-full"
         >
           <CarouselContent className="-ml-2 sm:-ml-4 md:-ml-6">
-            {sortedPlayers.map((player) => (
+            {filteredPlayers.map((player) => (
               <CarouselItem
                 key={player.name}
                 className="pl-2 sm:pl-4 md:pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <Card className="bg-white rounded-xl shadow-lg border-2 border-blue-200 flex flex-col items-center justify-between p-0 w-full h-[400px] relative">
-                  <CardContent className="flex flex-col items-center justify-between p-0 h-full w-full">
-                    <div
-                      className="flex items-center justify-center w-full"
-                      style={{ height: "70%" }}
-                    >
-                      <Avatar className="w-full h-full max-h-[260px] max-w-[260px]">
-                        <AvatarImage
-                          src={player.photo || undefined}
-                          alt={player.name}
-                          className="object-cover w-full h-full rounded-xl"
-                        />
-                        <AvatarFallback className="bg-slate-100 text-gray-400 text-xl font-semibold w-full h-full rounded-xl flex items-center justify-center">
-                          [Player Photo]
-                        </AvatarFallback>
-                      </Avatar>
-                    </div>
-                    <div
-                      className="w-full bg-gradient-to-r from-blue-900 to-blue-700 py-4 rounded-b-xl text-center"
-                      style={{ height: "30%" }}
-                    >
-                      <Badge
-                        variant="outline"
-                        className="text-xl sm:text-2xl font-bold text-white mb-1 bg-transparent border-none"
-                      >
-                        {player.name}
-                      </Badge>
-                      <div className="text-base sm:text-lg text-yellow-400 tracking-wide mb-6">
-                        {player.position}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                {/* Premium Player Card */}
+                <div className="card-player h-[420px] group cursor-pointer">
+                  {/* Player Image */}
+                  <div className="absolute inset-0">
+                    <Avatar className="w-full h-full rounded-xl">
+                      <AvatarImage
+                        src={player.photo || undefined}
+                        alt={player.name}
+                        className="object-cover w-full h-full"
+                      />
+                      <AvatarFallback className="bg-[#0f3460] text-white/40 text-xl font-semibold w-full h-full rounded-xl flex items-center justify-center">
+                        {player.name.split(" ").map((n) => n[0]).join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1929] via-[#0a1929]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]" />
+
+                  {/* Position Badge - Top */}
+                  <div className="absolute top-4 right-4 z-[3]">
+                    <Badge className={`${positionConfig[player.position].bgColor} ${positionConfig[player.position].color} border px-3 py-1 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5`}>
+                      {positionConfig[player.position].icon}
+                      {player.position}
+                    </Badge>
+                  </div>
+
+                  {/* Player Info - Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-[3]">
+                    {/* Name */}
+                    <h3 className="text-white text-xl font-bold mb-1 group-hover:text-[#f5a623] transition-colors duration-300">
+                      {player.name}
+                    </h3>
+
+                    {/* Decorative line */}
+                    <div className="w-12 h-1 bg-gradient-to-r from-[#f5a623] to-transparent rounded-full mb-2 group-hover:w-full transition-all duration-500" />
+
+                    {/* Position text on hover */}
+                    <p className="text-white/60 text-sm font-medium uppercase tracking-wider">
+                      {player.position}
+                    </p>
+                  </div>
+
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 rounded-xl ring-2 ring-[#f5a623]/0 group-hover:ring-[#f5a623]/50 transition-all duration-300" />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-yellow-400 text-blue-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -left-4 sm:-left-6" />
-          <CarouselNext className="bg-yellow-400 text-blue-900 hover:bg-yellow-500 border-none w-10 h-10 sm:w-12 sm:h-12 -right-4 sm:-right-6" />
+
+          {/* Navigation Buttons */}
+          <CarouselPrevious className="bg-[#f5a623] text-[#0a1929] hover:bg-[#ffd93d] border-none w-12 h-12 -left-4 sm:-left-6 shadow-lg shadow-[#f5a623]/30" />
+          <CarouselNext className="bg-[#f5a623] text-[#0a1929] hover:bg-[#ffd93d] border-none w-12 h-12 -right-4 sm:-right-6 shadow-lg shadow-[#f5a623]/30" />
         </Carousel>
       </div>
+
+      {/* Bottom Stats */}
+      <div className="relative z-10 mt-16 max-w-4xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {(["GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const).map((pos) => (
+            <div
+              key={pos}
+              className={`text-center p-4 rounded-xl ${positionConfig[pos].bgColor} border backdrop-blur-sm`}
+            >
+              <div className={`text-3xl font-bold ${positionConfig[pos].color}`}>
+                {positionCounts[pos]}
+              </div>
+              <div className={`text-sm font-medium ${positionConfig[pos].color} opacity-80`}>
+                {pos}S
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0f3460]/50 rounded-full blur-3xl" />
     </section>
   );
 };

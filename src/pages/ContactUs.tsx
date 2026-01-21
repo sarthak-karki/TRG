@@ -1,162 +1,267 @@
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import { FC } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@app/components/ui/card";
-import { Facebook, Instagram, Music, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin, Send, Users, Heart } from "lucide-react";
+
+// Custom TikTok Icon
+const TikTokIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </svg>
+);
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    handle: "@RisingGurkhas",
+    url: "https://www.facebook.com/RisingGurkhas",
+    icon: <Facebook className="w-6 h-6" />,
+    color: "from-blue-500 to-blue-600",
+    hoverBg: "hover:bg-blue-500/10",
+    followers: "2.5K+",
+  },
+  {
+    name: "Instagram",
+    handle: "@trgfc_2012",
+    url: "https://www.instagram.com/trgfc_2012",
+    icon: <Instagram className="w-6 h-6" />,
+    color: "from-purple-500 via-pink-500 to-orange-500",
+    hoverBg: "hover:bg-pink-500/10",
+    followers: "1.8K+",
+  },
+  {
+    name: "TikTok",
+    handle: "@trgfc_2012",
+    url: "https://www.tiktok.com/@trgfc_2012",
+    icon: <TikTokIcon />,
+    color: "from-gray-700 to-black",
+    hoverBg: "hover:bg-gray-500/10",
+    followers: "500+",
+  },
+];
+
+const contactMethods = [
+  {
+    icon: <Mail className="w-8 h-8" />,
+    title: "Email Us",
+    description: "Send us a message anytime",
+    value: "trgfc2012@gmail.com",
+    link: "mailto:trgfc2012@gmail.com",
+    color: "from-[#f5a623] to-[#ffd93d]",
+  },
+  {
+    icon: <Phone className="w-8 h-8" />,
+    title: "Call Us",
+    description: "Reach out directly",
+    value: "+61 422 156 518",
+    link: "tel:+61422156518",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: <MapPin className="w-8 h-8" />,
+    title: "Location",
+    description: "Based in",
+    value: "Sydney, Australia",
+    link: null,
+    color: "from-blue-500 to-cyan-500",
+  },
+];
 
 const ContactUs: FC = () => {
   return (
-    <div className="bg-gradient-to-b from-slate-50 to-slate-100 min-h-screen leading-tight font-sans w-full">
+    <div className="bg-[#0a1929] min-h-screen font-sans w-full">
       <Header />
 
-      <div className="container mx-auto px-4 py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-blue-900 mb-4">
-            Contact Us
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1929] via-[#0f3460] to-[#0a1929]" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }} />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+          <span className="inline-block px-4 py-1 mb-6 text-[#f5a623] text-sm font-semibold uppercase tracking-widest border border-[#f5a623]/30 rounded-full bg-[#f5a623]/5">
+            Get In Touch
+          </span>
+          <h1 className="text-display text-white mb-6">
+            CONTACT <span className="gradient-text-gold">US</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get in touch with The Rising Gurkhas FC
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            We'd love to hear from you. Reach out to join our team, discuss sponsorship, or just say hello.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Email Contact Card */}
-          <Card className="border-2 border-blue-200 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-              <CardTitle className="text-3xl flex items-center gap-3">
-                <Mail className="w-8 h-8" />
-                Email Us
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Have questions, suggestions, or want to join our team? Feel free
-                to reach out to us via email.
-              </p>
-              <a
-                href="mailto:trgfc2012@gmail.com"
-                className="inline-flex items-center gap-2 text-xl font-semibold text-blue-900 hover:text-blue-700 transition-colors"
-              >
-                <Mail className="w-6 h-6" />
-                trgfc2012@gmail.com
-              </a>
-            </CardContent>
-          </Card>
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#f5a623]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0f3460]/50 rounded-full blur-3xl" />
+      </section>
 
-          {/* Phone Contact Card */}
-          <Card className="border-2 border-blue-200 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-              <CardTitle className="text-2xl flex items-center gap-3">
-                <Phone className="w-7 h-7" />
-                Call Us
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Reach out to us directly
-              </p>
-              <a
-                href="tel:+1234567890"
-                className="inline-flex items-center gap-2 text-lg font-semibold text-blue-900 hover:text-blue-700 transition-colors"
-              >
-                <Phone className="w-5 h-5" />
-                +61 422 156 518
-              </a>
-            </CardContent>
-          </Card>
-
-          {/* Social Media Card */}
-          <Card className="border-2 border-blue-200 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-              <CardTitle className="text-3xl">Connect With Us</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Follow us on social media to stay updated with our latest
-                matches, highlights, and team news.
-              </p>
-
-              <div className="space-y-4">
-                {/* Facebook */}
-                <a
-                  href="https://www.facebook.com/RisingGurkhas"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-blue-50 rounded-lg border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-100 transition-all group"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-full group-hover:bg-blue-700 transition-colors">
-                    <Facebook className="w-6 h-6 text-white" />
+      {/* Contact Methods */}
+      <section className="relative py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {contactMethods.map((method, index) => {
+              const content = (
+                <div className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#f5a623]/30 transition-all duration-300 hover:-translate-y-2 h-full">
+                  {/* Icon */}
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${method.color} text-white mb-6`}>
+                    {method.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-900">
-                      Facebook
-                    </h3>
-                    <p className="text-gray-600">@RisingGurkhas</p>
-                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#f5a623] transition-colors">
+                    {method.title}
+                  </h3>
+                  <p className="text-white/50 text-sm mb-3">{method.description}</p>
+                  <p className="text-white font-semibold text-lg">{method.value}</p>
+                </div>
+              );
+
+              return method.link ? (
+                <a key={index} href={method.link} className="block">
+                  {content}
                 </a>
+              ) : (
+                <div key={index}>{content}</div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                {/* Instagram */}
+      {/* Social Media Section */}
+      <section className="relative py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 mb-4 text-[#f5a623] text-sm font-semibold uppercase tracking-widest border border-[#f5a623]/30 rounded-full bg-[#f5a623]/5">
+              Social Media
+            </span>
+            <h2 className="text-headline text-white mb-4">
+              CONNECT WITH <span className="gradient-text-gold">US</span>
+            </h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Follow us on social media to stay updated with our latest matches, highlights, and team news
+            </p>
+          </div>
+
+          {/* Social Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#f5a623]/30 transition-all duration-300 hover:-translate-y-2 ${social.hoverBg}`}
+              >
+                <div className="flex items-start justify-between mb-6">
+                  {/* Icon */}
+                  <div className={`p-4 rounded-xl bg-gradient-to-br ${social.color} text-white`}>
+                    {social.icon}
+                  </div>
+                  {/* Followers */}
+                  <div className="text-right">
+                    <p className="text-2xl font-bold text-white">{social.followers}</p>
+                    <p className="text-white/40 text-sm">Followers</p>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#f5a623] transition-colors">
+                  {social.name}
+                </h3>
+                <p className="text-white/50">{social.handle}</p>
+
+                {/* Arrow */}
+                <div className="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#f5a623]/20 transition-colors">
+                  <Send className="w-4 h-4 text-white/40 group-hover:text-[#f5a623] transition-colors" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join CTA Section */}
+      <section className="relative py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="relative p-12 rounded-3xl overflow-hidden">
+            {/* Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0f3460] to-[#0a1929]" />
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `linear-gradient(45deg, transparent 45%, #f5a623 45%, #f5a623 55%, transparent 55%)`,
+                backgroundSize: "30px 30px",
+              }} />
+            </div>
+
+            {/* Border */}
+            <div className="absolute inset-0 rounded-3xl border border-[#f5a623]/20" />
+
+            {/* Content */}
+            <div className="relative z-10 text-center">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="p-3 rounded-full bg-[#f5a623]/10 border border-[#f5a623]/30">
+                  <Users className="w-6 h-6 text-[#f5a623]" />
+                </div>
+                <div className="p-3 rounded-full bg-[#f5a623]/10 border border-[#f5a623]/30">
+                  <Heart className="w-6 h-6 text-[#f5a623]" />
+                </div>
+              </div>
+
+              <h2 className="text-headline text-white mb-4">
+                JOIN THE <span className="gradient-text-gold">GURKHA FAMILY</span>
+              </h2>
+
+              <p className="text-white/60 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Whether you're a player looking to join our squad, a fan wanting to support the team,
+                or a potential sponsor interested in partnering with us - we'd love to hear from you.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://www.instagram.com/trgfc_2012"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-blue-50 rounded-lg border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-100 transition-all group"
+                  href="mailto:trgfc2012@gmail.com?subject=Join%20The%20Team"
+                  className="btn-premium btn-gold px-8 py-4 rounded-full text-base flex items-center justify-center gap-2"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 rounded-full group-hover:from-purple-700 group-hover:via-pink-700 group-hover:to-orange-700 transition-all">
-                    <Instagram className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-900">
-                      Instagram
-                    </h3>
-                    <p className="text-gray-600">@trgfc_2012</p>
-                  </div>
+                  <Users className="w-5 h-5" />
+                  Join The Team
                 </a>
-
-                {/* TikTok */}
                 <a
-                  href="https://www.tiktok.com/@trgfc_2012"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-blue-50 rounded-lg border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-100 transition-all group"
+                  href="mailto:trgfc2012@gmail.com?subject=Sponsorship%20Inquiry"
+                  className="btn-premium btn-outline-gold px-8 py-4 rounded-full text-base flex items-center justify-center gap-2 hover:text-[#0a1929]"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 bg-black rounded-full group-hover:bg-gray-800 transition-colors">
-                    <Music className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-900">TikTok</h3>
-                    <p className="text-gray-600">@trgfc_2012</p>
-                  </div>
+                  <Heart className="w-5 h-5" />
+                  Become a Sponsor
                 </a>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Additional Info Card */}
-          <Card className="border-2 border-yellow-400 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-yellow-500 to-yellow-400">
-              <CardTitle className="text-3xl text-gray-900">
-                Join Our Community
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Whether you're interested in playing for The Rising Gurkhas FC,
-                sponsoring our team, or simply want to support us, we'd love to
-                hear from you. Join us in our journey to excellence and be part
-                of our growing football family.
-              </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Quick Contact Banner */}
+      <section className="relative py-8 bg-gradient-to-r from-[#f5a623] via-[#ffd93d] to-[#f5a623]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-[#0a1929]">Ready to get in touch?</h3>
+              <p className="text-[#0a1929]/70">We typically respond within 24 hours</p>
+            </div>
+            <a
+              href="mailto:trgfc2012@gmail.com"
+              className="flex items-center gap-2 px-6 py-3 bg-[#0a1929] text-white font-bold rounded-full hover:bg-[#0f3460] transition-colors"
+            >
+              <Mail className="w-5 h-5" />
+              Send Message
+            </a>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
