@@ -76,10 +76,10 @@ const Header: FC = () => {
                 </Avatar>
               </div>
               <div
-                className={`hidden md:block transition-all duration-300 ${scrolled ? "opacity-0 w-0" : "opacity-100"}`}
+                className={`hidden md:block transition-all duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
               >
                 <h1 className="text-[#f5a623] font-bold text-2xl md:text-3xl leading-tight">
-                  TRGFC
+                  TRG FC
                 </h1>
               </div>
             </Link>

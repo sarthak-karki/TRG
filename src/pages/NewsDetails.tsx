@@ -5,7 +5,7 @@ import { Calendar, ArrowLeft, Clock, ChevronRight, Share2 } from "lucide-react";
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import newsItems from "@app/data/news.json";
-import jerseyRevealImage from "@app/assets/jerseyReveal.jpg";
+import { getNewsImage } from "@app/lib/utils";
 
 const NewsDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,38 +23,41 @@ const NewsDetails: FC = () => {
   };
 
   const getCategoryStyle = (category: string) => {
-    const styles: Record<string, { bg: string; text: string; border: string }> = {
-      "Match Report": {
-        bg: "bg-green-500/20",
-        text: "text-green-400",
-        border: "border-green-500/30",
-      },
-      "Transfer News": {
-        bg: "bg-blue-500/20",
-        text: "text-blue-400",
-        border: "border-blue-500/30",
-      },
-      "Club News": {
-        bg: "bg-[#f5a623]/20",
-        text: "text-[#f5a623]",
-        border: "border-[#f5a623]/30",
-      },
-      "Preview": {
-        bg: "bg-purple-500/20",
-        text: "text-purple-400",
-        border: "border-purple-500/30",
-      },
-      Community: {
-        bg: "bg-pink-500/20",
-        text: "text-pink-400",
-        border: "border-pink-500/30",
-      },
-    };
-    return styles[category] || { bg: "bg-white/10", text: "text-white/70", border: "border-white/20" };
-  };
-
-  const getNewsImage = (item: (typeof newsItems)[0]) => {
-    return item.id === 3 ? jerseyRevealImage : item.image;
+    const styles: Record<string, { bg: string; text: string; border: string }> =
+      {
+        "Match Report": {
+          bg: "bg-green-500/20",
+          text: "text-green-400",
+          border: "border-green-500/30",
+        },
+        "Transfer News": {
+          bg: "bg-blue-500/20",
+          text: "text-blue-400",
+          border: "border-blue-500/30",
+        },
+        "Club News": {
+          bg: "bg-[#f5a623]/20",
+          text: "text-[#f5a623]",
+          border: "border-[#f5a623]/30",
+        },
+        Preview: {
+          bg: "bg-purple-500/20",
+          text: "text-purple-400",
+          border: "border-purple-500/30",
+        },
+        Community: {
+          bg: "bg-pink-500/20",
+          text: "text-pink-400",
+          border: "border-pink-500/30",
+        },
+      };
+    return (
+      styles[category] || {
+        bg: "bg-white/10",
+        text: "text-white/70",
+        border: "border-white/20",
+      }
+    );
   };
 
   if (!newsItem) {
@@ -63,7 +66,9 @@ const NewsDetails: FC = () => {
         <Header />
         <div className="min-h-[60vh] flex flex-col items-center justify-center px-4">
           <h1 className="text-4xl font-bold text-white mb-4">News Not Found</h1>
-          <p className="text-white/60 mb-8">The article you're looking for doesn't exist.</p>
+          <p className="text-white/60 mb-8">
+            The article you're looking for doesn't exist.
+          </p>
           <button
             onClick={() => navigate("/news")}
             className="btn-premium btn-gold px-8 py-4 rounded-full flex items-center gap-2"
@@ -117,7 +122,9 @@ const NewsDetails: FC = () => {
           <div className="max-w-4xl mx-auto">
             {/* Category & Meta */}
             <div className="flex flex-wrap items-center gap-4 mb-4">
-              <Badge className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}>
+              <Badge
+                className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}
+              >
                 {newsItem.category}
               </Badge>
               <div className="flex items-center gap-2 text-white/50 text-sm">
@@ -125,8 +132,7 @@ const NewsDetails: FC = () => {
                 {formatDate(newsItem.date)}
               </div>
               <div className="flex items-center gap-2 text-white/50 text-sm">
-                <Clock className="w-4 h-4" />
-                5 min read
+                <Clock className="w-4 h-4" />5 min read
               </div>
             </div>
 
@@ -172,7 +178,9 @@ const NewsDetails: FC = () => {
           {/* Tags/Category Footer */}
           <div className="flex items-center gap-4">
             <span className="text-white/40 text-sm">Category:</span>
-            <Badge className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}>
+            <Badge
+              className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}
+            >
               {newsItem.category}
             </Badge>
           </div>
@@ -217,7 +225,9 @@ const NewsDetails: FC = () => {
                       />
                       {/* Category Badge */}
                       <div className="absolute top-3 left-3">
-                        <Badge className={`${relatedCategoryStyle.bg} ${relatedCategoryStyle.text} border ${relatedCategoryStyle.border} text-xs`}>
+                        <Badge
+                          className={`${relatedCategoryStyle.bg} ${relatedCategoryStyle.text} border ${relatedCategoryStyle.border} text-xs`}
+                        >
                           {news.category}
                         </Badge>
                       </div>

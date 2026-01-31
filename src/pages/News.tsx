@@ -5,7 +5,7 @@ import { Calendar, ChevronRight, Clock, ArrowRight } from "lucide-react";
 import Header from "@app/components/header";
 import Footer from "@app/components/footer";
 import newsItems from "@app/data/news.json";
-import jerseyRevealImage from "@app/assets/jerseyReveal.jpg";
+import { getNewsImage } from "@app/lib/utils";
 
 const News: FC = () => {
   const navigate = useNavigate();
@@ -20,38 +20,41 @@ const News: FC = () => {
   };
 
   const getCategoryStyle = (category: string) => {
-    const styles: Record<string, { bg: string; text: string; border: string }> = {
-      "Match Report": {
-        bg: "bg-green-500/20",
-        text: "text-green-400",
-        border: "border-green-500/30",
-      },
-      "Transfer News": {
-        bg: "bg-blue-500/20",
-        text: "text-blue-400",
-        border: "border-blue-500/30",
-      },
-      "Club News": {
-        bg: "bg-[#f5a623]/20",
-        text: "text-[#f5a623]",
-        border: "border-[#f5a623]/30",
-      },
-      "Preview": {
-        bg: "bg-purple-500/20",
-        text: "text-purple-400",
-        border: "border-purple-500/30",
-      },
-      Community: {
-        bg: "bg-pink-500/20",
-        text: "text-pink-400",
-        border: "border-pink-500/30",
-      },
-    };
-    return styles[category] || { bg: "bg-white/10", text: "text-white/70", border: "border-white/20" };
-  };
-
-  const getNewsImage = (item: (typeof newsItems)[0]) => {
-    return item.id === 3 ? jerseyRevealImage : item.image;
+    const styles: Record<string, { bg: string; text: string; border: string }> =
+      {
+        "Match Report": {
+          bg: "bg-green-500/20",
+          text: "text-green-400",
+          border: "border-green-500/30",
+        },
+        "Transfer News": {
+          bg: "bg-blue-500/20",
+          text: "text-blue-400",
+          border: "border-blue-500/30",
+        },
+        "Club News": {
+          bg: "bg-[#f5a623]/20",
+          text: "text-[#f5a623]",
+          border: "border-[#f5a623]/30",
+        },
+        Preview: {
+          bg: "bg-purple-500/20",
+          text: "text-purple-400",
+          border: "border-purple-500/30",
+        },
+        Community: {
+          bg: "bg-pink-500/20",
+          text: "text-pink-400",
+          border: "border-pink-500/30",
+        },
+      };
+    return (
+      styles[category] || {
+        bg: "bg-white/10",
+        text: "text-white/70",
+        border: "border-white/20",
+      }
+    );
   };
 
   const featuredNews = newsItems[0];
@@ -66,10 +69,13 @@ const News: FC = () => {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1929] via-[#0f3460] to-[#0a1929]" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
@@ -115,7 +121,9 @@ const News: FC = () => {
                 <span className="px-3 py-1 bg-[#f5a623] text-[#0a1929] text-xs font-bold uppercase tracking-wider rounded-full">
                   Featured
                 </span>
-                <Badge className={`${getCategoryStyle(featuredNews.category).bg} ${getCategoryStyle(featuredNews.category).text} border ${getCategoryStyle(featuredNews.category).border}`}>
+                <Badge
+                  className={`${getCategoryStyle(featuredNews.category).bg} ${getCategoryStyle(featuredNews.category).text} border ${getCategoryStyle(featuredNews.category).border}`}
+                >
                   {featuredNews.category}
                 </Badge>
               </div>
@@ -137,8 +145,7 @@ const News: FC = () => {
                   {formatDate(featuredNews.date)}
                 </div>
                 <div className="flex items-center gap-2 text-white/50 text-sm">
-                  <Clock className="w-4 h-4" />
-                  5 min read
+                  <Clock className="w-4 h-4" />5 min read
                 </div>
                 <div className="flex items-center gap-2 text-[#f5a623] font-semibold group-hover:gap-3 transition-all duration-300">
                   Read Full Story
@@ -170,11 +177,16 @@ const News: FC = () => {
                 <article
                   key={news.id}
                   onClick={() => navigate(`/news/${news.id}`)}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer h-full"
+                  style={{
+                    minHeight: 440,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
-                  <div className="relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#f5a623]/30 transition-all duration-300 hover:-translate-y-2">
+                  <div className="relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#f5a623]/30 transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden flex-shrink-0">
                       <img
                         src={getNewsImage(news)}
                         alt={news.title}
@@ -182,7 +194,9 @@ const News: FC = () => {
                       />
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
-                        <Badge className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}>
+                        <Badge
+                          className={`${categoryStyle.bg} ${categoryStyle.text} border ${categoryStyle.border}`}
+                        >
                           {news.category}
                         </Badge>
                       </div>
@@ -191,25 +205,26 @@ const News: FC = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      {/* Date */}
-                      <div className="flex items-center gap-2 text-white/40 text-sm mb-3">
-                        <Calendar className="w-4 h-4" />
-                        {formatDate(news.date)}
+                    <div className="p-6 flex flex-col flex-1 justify-between">
+                      <div>
+                        {/* Date */}
+                        <div className="flex items-center gap-2 text-white/40 text-sm mb-3">
+                          <Calendar className="w-4 h-4" />
+                          {formatDate(news.date)}
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#f5a623] transition-colors duration-300 line-clamp-2">
+                          {news.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-white/50 text-sm mb-4 line-clamp-2">
+                          {news.description}
+                        </p>
                       </div>
-
-                      {/* Title */}
-                      <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#f5a623] transition-colors duration-300 line-clamp-2">
-                        {news.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-white/50 text-sm mb-4 line-clamp-2">
-                        {news.description}
-                      </p>
-
                       {/* Read More */}
-                      <div className="flex items-center gap-2 text-[#f5a623] text-sm font-semibold">
+                      <div className="flex items-center gap-2 text-[#f5a623] text-sm font-semibold mt-auto">
                         Read More
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
@@ -222,15 +237,6 @@ const News: FC = () => {
               );
             })}
           </div>
-
-          {/* Load More CTA (if needed in future) */}
-          {newsItems.length > 4 && (
-            <div className="mt-12 text-center">
-              <button className="btn-premium btn-outline-gold px-8 py-3 rounded-full text-sm hover:text-[#0a1929]">
-                Load More Stories
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
