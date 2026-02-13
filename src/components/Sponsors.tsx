@@ -1,8 +1,9 @@
 import React from "react";
 import { Star, Award, Medal } from "lucide-react";
+import { Card, CardContent } from "@app/components/ui/card";
 
-import mainSponsor from "@app/assets/sponsors/arcHomeLoans.png";
-import gold1 from "@app/assets/sponsors/Rey Co Grp.png";
+import mainSponsor from "@app/assets/sponsors/arcHomeLoans_resized.png";
+import gold1 from "@app/assets/sponsors/ReyCoGrp_resized.png";
 import gold2 from "@app/assets/sponsors/arcAccountingSol.png";
 import gold3 from "@app/assets/sponsors/PacificVisa-Logo-Final.png";
 import silver1 from "@app/assets/sponsors/GoEasy png file .png";
@@ -66,63 +67,70 @@ const SponsorTier: React.FC<{
   <div className="mb-12 last:mb-0">
     {/* Tier Header */}
     <div className="flex items-center justify-center gap-3 mb-8">
-      <div className={`h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent ${tierColor}`} />
-      <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${tierBg} border border-current/20`}>
+      <div
+        className={`h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent ${tierColor}`}
+      />
+      <div
+        className={`flex items-center gap-2 px-4 py-2 rounded-full ${tierBg} border border-current/20`}
+      >
         {icon}
-        <span className={`text-sm font-bold uppercase tracking-wider ${tierColor}`}>{title}</span>
+        <span
+          className={`text-sm font-bold uppercase tracking-wider ${tierColor}`}
+        >
+          {title}
+        </span>
       </div>
-      <div className={`h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent ${tierColor}`} />
+      <div
+        className={`h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent ${tierColor}`}
+      />
     </div>
 
     {/* Sponsors Grid */}
-    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-      {sponsors.map((sponsor) => (
-        <a
-          key={sponsor.logoAlt}
-          href={sponsor.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`group relative ${cardSize} bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2`}
-        >
-          {/* Card Background with subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50" />
+    <div className="flex justify-center">
+      <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+        {sponsors.map((sponsor) => (
+          <a
+            key={sponsor.logoAlt}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <Card
+              className={`${cardSize} bg-white transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 relative overflow-hidden`}
+            >
+              <CardContent className="p-6 h-full flex items-center justify-center relative">
+                <LazyLoad
+                  src={sponsor.logoSrc}
+                  alt={sponsor.logoAlt}
+                  className="block transition-transform duration-300 group-hover:scale-110"
+                />
 
-          {/* Hover Glow Effect */}
-          <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${tierBg}`} />
+                {/* Hover overlay with sponsor name */}
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                  <div className="text-center">
+                    <p className="text-white font-medium text-sm">
+                      {sponsor.name}
+                    </p>
+                    <p className="text-white/70 text-xs mt-1">Click to visit</p>
+                  </div>
+                </div>
 
-          {/* Border Gradient */}
-          <div className={`absolute inset-0 rounded-2xl ring-2 ring-gray-100 group-hover:ring-4 transition-all duration-300 ${
-            title === "PRINCIPAL" ? "group-hover:ring-[#f5a623]/50" :
-            title === "GOLD" ? "group-hover:ring-yellow-400/50" :
-            "group-hover:ring-gray-400/50"
-          }`} />
-
-          {/* Content */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center p-6">
-            <div className={`${logoSize} flex items-center justify-center`}>
-              <LazyLoad
-                src={sponsor.logoSrc}
-                alt={sponsor.logoAlt}
-                className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-
-            {/* Sponsor name on hover */}
-            <div className="absolute bottom-0 left-0 right-0 py-2 px-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-xs font-medium text-center truncate">{sponsor.name}</p>
-            </div>
-          </div>
-
-          {/* Premium Corner Badge for Principal Sponsor */}
-          {title === "PRINCIPAL" && (
-            <div className="absolute top-4 right-4">
-              <div className="bg-gradient-to-r from-[#f5a623] to-[#ffd93d] p-2 rounded-full animate-pulse-glow">
-                <Star className="w-4 h-4 text-[#0a1929]" fill="currentColor" />
-              </div>
-            </div>
-          )}
-        </a>
-      ))}
+                {/* Tier-specific border glow */}
+                <div
+                  className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ring-2 ${
+                    title === "PRINCIPAL"
+                      ? "ring-[#f5a623]/50"
+                      : title === "GOLD"
+                        ? "ring-yellow-400/50"
+                        : "ring-gray-400/50"
+                  }`}
+                />
+              </CardContent>
+            </Card>
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 );
@@ -132,10 +140,13 @@ const Sponsors: React.FC = () => {
     <section className="relative bg-gradient-to-b from-[#0a1929] via-[#0f3460] to-[#0a1929] py-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(45deg, transparent 45%, white 45%, white 55%, transparent 55%)`,
-          backgroundSize: "20px 20px",
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(45deg, transparent 45%, white 45%, white 55%, transparent 55%)`,
+            backgroundSize: "20px 20px",
+          }}
+        />
       </div>
 
       {/* Decorative Blurs */}
@@ -152,7 +163,8 @@ const Sponsors: React.FC = () => {
             OUR <span className="gradient-text-gold">SPONSORS</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            We are grateful to our valued partners who support our journey and share our vision
+            We are grateful to our valued partners who support our journey and
+            share our vision
           </p>
         </div>
 
@@ -192,9 +204,12 @@ const Sponsors: React.FC = () => {
         {/* Become a Sponsor CTA */}
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <h3 className="text-white text-xl font-bold mb-2">Become a Partner</h3>
+            <h3 className="text-white text-xl font-bold mb-2">
+              Become a Partner
+            </h3>
             <p className="text-white/60 text-sm mb-4 max-w-md">
-              Join our family of sponsors and help us continue to grow the beautiful game
+              Join our family of sponsors and help us continue to grow the
+              beautiful game
             </p>
             <a
               href="mailto:trgfc2012@gmail.com?subject=Sponsorship%20Inquiry"
