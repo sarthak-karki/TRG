@@ -61,9 +61,8 @@ const SponsorTier: React.FC<{
   sponsors: Sponsor[];
   tierColor: string;
   tierBg: string;
-  logoSize: string;
   cardSize: string;
-}> = ({ title, icon, sponsors, tierColor, tierBg, logoSize, cardSize }) => (
+}> = ({ title, icon, sponsors, tierColor, tierBg, cardSize }) => (
   <div className="mb-12 last:mb-0">
     {/* Tier Header */}
     <div className="flex items-center justify-center gap-3 mb-8">
@@ -175,7 +174,6 @@ const Sponsors: React.FC = () => {
           sponsors={mainSponsors}
           tierColor="text-[#f5a623]"
           tierBg="bg-[#f5a623]/5"
-          logoSize="h-32 w-64"
           cardSize="w-80 h-44"
         />
 
@@ -186,7 +184,6 @@ const Sponsors: React.FC = () => {
           sponsors={goldSponsors}
           tierColor="text-yellow-400"
           tierBg="bg-yellow-400/5"
-          logoSize="h-24 w-48"
           cardSize="w-64 h-36"
         />
 
@@ -197,7 +194,6 @@ const Sponsors: React.FC = () => {
           sponsors={silverSponsors}
           tierColor="text-gray-300"
           tierBg="bg-gray-300/5"
-          logoSize="h-20 w-40"
           cardSize="w-56 h-32"
         />
 
