@@ -9,62 +9,32 @@ import ContactUs from "@app/pages/ContactUs";
 import News from "@app/pages/News";
 import NewsDetails from "@app/pages/NewsDetails";
 
-// Component to track page views with detailed metrics
 const Analytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Get page title and custom event data based on route
-    const getPageData = (pathname: string) => {
-      switch (true) {
-        case pathname === "/":
-          return {
-            title: "Home Page",
-            event_category: "navigation",
-            event_label: "homepage_view",
-          };
-        case pathname === "/about-us":
-          return {
-            title: "About Us Page",
-            event_category: "navigation",
-            event_label: "about_page_view",
-          };
-        case pathname === "/news":
-          return {
-            title: "News Page",
-            event_category: "navigation",
-            event_label: "news_page_view",
-          };
-        case pathname.startsWith("/news/"):
-          const newsId = pathname.split("/news/")[1];
-          return {
-            title: `News Details - ${newsId}`,
-            event_category: "navigation",
-            event_label: "news_details_view",
-            custom_parameters: { news_id: newsId },
-          };
-        case pathname === "/contact":
-          return {
-            title: "Contact Us Page",
-            event_category: "navigation",
-            event_label: "contact_page_view",
-          };
+    const getPageTitle = (pathname: string) => {
+      switch (pathname) {
+        case "/":
+          return "Home Page";
+        case "/about-us":
+          return "About Us Page";
+        case "/news":
+          return "News Page";
+        case "/contact":
+          return "Contact Page";
         default:
-          return {
-            title: "Unknown Page",
-            event_category: "navigation",
-            event_label: "unknown_page_view",
-          };
+          if (pathname.startsWith("/news/")) {
+            return "News Article Page";
+          }
+          return "Page";
       }
     };
 
-    const pageData = getPageData(location.pathname);
-
-    // Send direct custom event with unique action names
-    ReactGA.event({
-      action: pageData.event_label, // homepage_view, news_page_view, etc.
-      category: pageData.event_category,
-      ...(pageData.custom_parameters || {})
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname,
+      title: getPageTitle(location.pathname),
     });
   }, [location]);
 

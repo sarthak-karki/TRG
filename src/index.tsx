@@ -8,7 +8,11 @@ import ReactGA from "react-ga4";
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 if (GA_MEASUREMENT_ID) {
-  ReactGA.initialize(GA_MEASUREMENT_ID);
+  ReactGA.initialize(GA_MEASUREMENT_ID, {
+    gtagOptions: {
+      send_page_view: false, // Disable automatic page view tracking
+    },
+  });
 } else {
   console.warn("Google Analytics not initialized - measurement ID not found");
 }
