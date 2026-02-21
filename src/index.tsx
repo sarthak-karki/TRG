@@ -10,12 +10,13 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 if (GA_MEASUREMENT_ID) {
   ReactGA.initialize(GA_MEASUREMENT_ID);
 } else {
-  console.warn('Google Analytics not initialized - measurement ID not found');
+  console.warn("Google Analytics not initialized - measurement ID not found");
 }
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
+
 root.render(
   <React.StrictMode>
     <App />

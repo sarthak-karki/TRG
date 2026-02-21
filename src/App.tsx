@@ -60,35 +60,26 @@ const Analytics = () => {
 
     const pageData = getPageData(location.pathname);
 
-    // Send single comprehensive page view
-    ReactGA.send({
-      hitType: "pageview",
-      page: location.pathname + location.search,
-      title: pageData.title,
-    });
+    // Build proper GA4 event with custom parameters
+    const eventData: any = {
+      action: 'page_view',
+      category: pageData.event_category,
+      label: pageData.event_label,
+    };
+
+    // Add custom parameters in GA4-compatible format
+    if (pageData.custom_parameters) {
+      eventData.custom_parameters = pageData.custom_parameters;
+    }
+
+    // Send modern GA4 page view event
+    ReactGA.event(eventData);
   }, [location]);
 
   return null;
 };
 
 const App = () => {
-  // Track app initialization
-  useEffect(() => {
-    // Track app load event
-    ReactGA.event({
-      action: "app_load",
-      category: "engagement",
-      label: "app_initialized",
-    });
-
-    // Track session start
-    ReactGA.event({
-      action: "session_start",
-      category: "engagement",
-      label: "user_session_began",
-    });
-  }, []);
-
   return (
     <HashRouter>
       <Analytics />
