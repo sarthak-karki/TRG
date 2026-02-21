@@ -60,9 +60,9 @@ const Analytics = () => {
 
     const pageData = getPageData(location.pathname);
 
-    // Build proper GA4 event with custom parameters
+    // Build custom navigation event (not reserved 'page_view')
     const eventData: any = {
-      action: 'page_view',
+      action: 'page_navigation',
       category: pageData.event_category,
       label: pageData.event_label,
     };
@@ -72,7 +72,7 @@ const Analytics = () => {
       eventData.custom_parameters = pageData.custom_parameters;
     }
 
-    // Send modern GA4 page view event
+    // Send custom navigation event
     ReactGA.event(eventData);
   }, [location]);
 
