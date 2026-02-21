@@ -7,6 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetDescription,
 } from "@app/components/ui/sheet";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@app/components/ui/button";
@@ -163,6 +164,9 @@ const Header: FC = () => {
                         <SheetTitle className="text-[#f5a623] text-3xl font-bold">
                           TRG FC
                         </SheetTitle>
+                        <SheetDescription className="text-gray-300 text-sm mt-1">
+                          Navigate through the club sections
+                        </SheetDescription>
                       </div>
                     </div>
                   </SheetHeader>
