@@ -60,20 +60,12 @@ const Analytics = () => {
 
     const pageData = getPageData(location.pathname);
 
-    // Build custom navigation event (not reserved 'page_view')
-    const eventData: any = {
-      action: 'page_navigation',
+    // Send direct custom event with unique action names
+    ReactGA.event({
+      action: pageData.event_label, // homepage_view, news_page_view, etc.
       category: pageData.event_category,
-      label: pageData.event_label,
-    };
-
-    // Add custom parameters in GA4-compatible format
-    if (pageData.custom_parameters) {
-      eventData.custom_parameters = pageData.custom_parameters;
-    }
-
-    // Send custom navigation event
-    ReactGA.event(eventData);
+      ...(pageData.custom_parameters || {})
+    });
   }, [location]);
 
   return null;
