@@ -1,5 +1,10 @@
-import { HashRouter } from "react-router-dom";
-import { Routes, Route, useLocation } from "react-router-dom";
+import {
+  createHashRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+  ScrollRestoration,
+} from "react-router-dom";
 import { useEffect } from "react";
 import ReactGA from "react-ga4";
 
@@ -41,19 +46,32 @@ const Analytics = () => {
   return null;
 };
 
-const App = () => {
+const Layout = () => {
   return (
-    <HashRouter>
+    <>
       <Analytics />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsDetails />} />
-        <Route path="/contact" element={<ContactUs />} />
-      </Routes>
-    </HashRouter>
+      <ScrollRestoration />
+      <Outlet />
+    </>
   );
+};
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about-us", element: <AboutUs /> },
+      { path: "news", element: <News /> },
+      { path: "news/:id", element: <NewsDetails /> },
+      { path: "contact", element: <ContactUs /> },
+    ],
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default App;
