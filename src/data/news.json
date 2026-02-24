@@ -5,7 +5,8 @@
     "description": "Our club delivered an outstanding performance at the 2025 MFC Cup, securing second place after two days of competitive football.\n\nDay 1: Group Stage\nThe team opened the tournament strongly, finishing the group stage in second place with two wins and one loss. This solid start ensured qualification for the knockout rounds.\n\nDay 2: Knockout Stage\n\nQuarterfinal:\nThe team faced Auburn Nepalese FC and recorded a disciplined 2–0 victory, displaying strong organisation and teamwork.\n\nSemifinal:\nA dominant performance saw the club defeat Beni FC 4–1. The match featured a standout hattrick from striker Darshan Gurung, one of the highlights of the tournament.\n\nGrand Final:\nIn a hard-fought final, the team fell short 2–1 against St George Nepalese Club (SGNC), securing the runner-up position for this year’s competition. Congratulations to SGNC on winning the tournament.\n\nIndividual Recognition:\nStriker Darshan Gurung earned the Top Scorer Award of the tournament, an excellent achievement reflecting his impact throughout the competition.\n\nAcknowledgements:\nThe club extends its appreciation to the players, coaching staff, and management for their commitment and effort. We also thank our supporters and sponsors for their continuous encouragement. Additionally, we acknowledge Machhapuchhre FC for hosting another well-organised and successful tournament.",
     "date": "2025-12-06",
     "category": "Match Report",
-    "image": "TeamPhoto.jpg"
+    "image": "TeamPhoto.jpg",
+    "isFeatured": false
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "description": "Our club delivered a spirited and determined performance, but ultimately fell 2–1 to Southwest Rhinos FC in a closely contested match. From kickoff, the team displayed strong intensity, pressing high, moving the ball with purpose, and creating several threatening opportunities. Despite the early pressure, it was Southwest Rhinos FC who capitalised on their chances to take the lead.\n\nThe team responded well, maintaining composure and working their way back into the match. Our goal came through Bibhushan KC, who once again showcased his quality with a calm and clinical finish. His strike brought momentum back to the squad, setting up a competitive second half.\n\nAs the match progressed, the players pushed forward with intent, creating multiple openings in search of an equaliser. The effort and resilience were evident across the pitch, but the final touch in front of goal proved elusive. Southwest Rhinos FC held their ground defensively and saw out the match.\n\nAlthough the result was disappointing, the performance highlighted several positives, including improved build-up play, strong defensive phases, and the growing cohesion within the squad. The team remains optimistic and is committed to bouncing back stronger in the next fixture, carrying forward the belief and work ethic shown in this match.",
     "date": "2025-11-24",
     "category": "Match Report",
-    "image": "teamWarmup.jpg"
+    "image": "teamWarmup.jpg",
+    "isFeatured": false
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "description": "Our club is excited to officially unveil our new Home and Away jerseys for the upcoming season. The reveal was held in collaboration with our major partners, Ark Home Loan and Ark Accounting Solutions, whose ongoing support has been instrumental in bringing this project to life.\n\nHome Jersey:\nThe new Home jersey highlights the club's traditional colours complemented by a modern design that enhances both style and performance. Improved fabric technology ensures better comfort and durability for players throughout the season.\n\nAway Jersey:\nThe Away kit introduces a bold and distinctive design, offering players a fresh look while maintaining the club's identity. Built with the same high-performance materials as the Home jersey, it provides confidence and comfort during challenging away fixtures.\n\nCommunity Partnership:\nWe extend our appreciation to Ark Home Loan and Ark Accounting Solutions for their involvement in the official reveal event. Their commitment to supporting community football continues to strengthen our club's growth and development.\n\nThe new jerseys will make their debut in the opening fixture of the season. Further details, including images and availability, will be shared within the app soon.",
     "date": "2024-11-28",
     "category": "Club News",
-    "image": "jerseyReveal.jpg"
+    "image": "jerseyReveal.jpg",
+    "isFeatured": false
   },
   {
     "id": 4,
@@ -29,6 +32,16 @@
     "description": "As the holiday season approaches, the club will be taking a scheduled Christmas break, with all training sessions and matches paused for the next two weeks. This short recess allows players, coaches, and families to rest, recharge, and spend quality time together during the festive period.\n\nThroughout the first part of the season, the squad has shown consistent commitment, effort, and improvement across all areas. The break offers an opportunity for everyone to recover both physically and mentally before returning to prepare for the upcoming fixtures.\n\nDuring this period, all club facilities and training activities will remain closed. Regular sessions will resume following the two-week break, with updated schedules to be shared through the app.\n\nWe thank all players, parents, volunteers, and supporters for their continued dedication throughout the year. The club wishes everyone a safe, enjoyable, and restful Christmas and holiday season. We look forward to seeing everyone back on the field soon.",
     "date": "2024-11-22",
     "category": "Preview",
-    "image": "christmasBreak.jpg"
+    "image": "christmasBreak.jpg",
+    "isFeatured": false
+  },
+  {
+    "id": 6,
+    "title": "Champions of the 12th Expert Cup 2026",
+    "description": "Our club has been crowned champions of the 12th Expert Cup 2026 after a memorable 2–0 victory over Himalayan Youth Club (HYC) in the final.\n\nAfter a tightly contested first half, the team stepped up in the second half with two brilliant goals to seal the win. The players showed incredible determination and resilience, battling through extreme heat and giving everything on the pitch to secure the title.\n\nWe extend our congratulations to Himalayan Youth Club for finishing as runners-up and for displaying outstanding sportsmanship throughout the tournament.\n\nA special mention goes to Nabin, who was named Best Goalkeeper of the Tournament. His consistency, composure, and crucial saves played a vital role in our championship-winning campaign.\n\nWe would also like to thank TRCC for organising such a fantastic tournament and providing a great platform for local football.\n\nFinally, a heartfelt thank you to our sponsors and supporters for your continued encouragement and belief in the team. This achievement would not have been possible without your support.",
+    "date": "2026-02-24",
+    "category": "Match Report",
+    "image": "expertCup2026Champions.jpg",
+    "isFeatured": true
   }
 ]

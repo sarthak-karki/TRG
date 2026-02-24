@@ -13,6 +13,20 @@ export function getNewsImage(item: { image?: string }) {
   }
   return item.image;
 }
+
+// Returns the correct image URL for a player, supporting local assets by filename
+export function getPlayerImage(filename: string) {
+  const localImages = import.meta.glob('../assets/players/*', { eager: true, as: 'url' });
+  if (filename && !filename.startsWith('http')) {
+    for (const path in localImages) {
+      if (path.endsWith(filename)) {
+        return localImages[path];
+      }
+    }
+  }
+  return filename;
+}
+
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 

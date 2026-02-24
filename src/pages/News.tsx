@@ -57,8 +57,11 @@ const News: FC = () => {
     );
   };
 
-  const featuredNews = newsItems[0];
-  const regularNews = newsItems.slice(1);
+  const featuredNews =
+    newsItems.find((item) => item.isFeatured) || newsItems[0];
+  const regularNews = newsItems.filter(
+    (item) => !item.isFeatured && item.id !== featuredNews?.id,
+  );
 
   return (
     <div className="bg-[#0a1929] min-h-screen font-sans w-full">
@@ -96,69 +99,71 @@ const News: FC = () => {
       </section>
 
       {/* Featured News */}
-      <section className="relative py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div
-            onClick={() => navigate(`/news/${featuredNews.id}`)}
-            className="group relative rounded-3xl overflow-hidden cursor-pointer"
-          >
-            {/* Background Image */}
-            <div className="relative h-[400px] md:h-[500px]">
-              <img
-                src={getNewsImage(featuredNews)}
-                alt={featuredNews.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1929] via-[#0a1929]/50 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a1929]/80 to-transparent" />
-            </div>
-
-            {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-              {/* Featured Badge */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1 bg-[#f5a623] text-[#0a1929] text-xs font-bold uppercase tracking-wider rounded-full">
-                  Featured
-                </span>
-                <Badge
-                  className={`${getCategoryStyle(featuredNews.category).bg} ${getCategoryStyle(featuredNews.category).text} border ${getCategoryStyle(featuredNews.category).border}`}
-                >
-                  {featuredNews.category}
-                </Badge>
+      {featuredNews && (
+        <section className="relative py-12">
+          <div className="max-w-6xl mx-auto px-4">
+            <div
+              onClick={() => navigate(`/news/${featuredNews.id}`)}
+              className="group relative rounded-3xl overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="relative h-[400px] md:h-[500px]">
+                <img
+                  src={getNewsImage(featuredNews)}
+                  alt={featuredNews.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1929] via-[#0a1929]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a1929]/80 to-transparent" />
               </div>
 
-              {/* Title */}
-              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#f5a623] transition-colors duration-300 max-w-3xl">
-                {featuredNews.title}
-              </h2>
-
-              {/* Description */}
-              <p className="text-white/70 mb-6 max-w-2xl line-clamp-2 md:line-clamp-3">
-                {featuredNews.description}
-              </p>
-
-              {/* Meta & CTA */}
-              <div className="flex flex-wrap items-center gap-6">
-                <div className="flex items-center gap-2 text-white/50 text-sm">
-                  <Calendar className="w-4 h-4" />
-                  {formatDate(featuredNews.date)}
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                {/* Featured Badge */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-3 py-1 bg-[#f5a623] text-[#0a1929] text-xs font-bold uppercase tracking-wider rounded-full">
+                    Featured
+                  </span>
+                  <Badge
+                    className={`${getCategoryStyle(featuredNews.category).bg} ${getCategoryStyle(featuredNews.category).text} border ${getCategoryStyle(featuredNews.category).border}`}
+                  >
+                    {featuredNews.category}
+                  </Badge>
                 </div>
-                <div className="flex items-center gap-2 text-white/50 text-sm">
-                  <Clock className="w-4 h-4" />5 min read
-                </div>
-                <div className="flex items-center gap-2 text-[#f5a623] font-semibold group-hover:gap-3 transition-all duration-300">
-                  Read Full Story
-                  <ArrowRight className="w-4 h-4" />
+
+                {/* Title */}
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#f5a623] transition-colors duration-300 max-w-3xl">
+                  {featuredNews.title}
+                </h2>
+
+                {/* Description */}
+                <p className="text-white/70 mb-6 max-w-2xl line-clamp-2 md:line-clamp-3">
+                  {featuredNews.description}
+                </p>
+
+                {/* Meta & CTA */}
+                <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex items-center gap-2 text-white/50 text-sm">
+                    <Calendar className="w-4 h-4" />
+                    {formatDate(featuredNews.date)}
+                  </div>
+                  <div className="flex items-center gap-2 text-white/50 text-sm">
+                    <Clock className="w-4 h-4" />5 min read
+                  </div>
+                  <div className="flex items-center gap-2 text-[#f5a623] font-semibold group-hover:gap-3 transition-all duration-300">
+                    Read Full Story
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Hover Border Effect */}
-            <div className="absolute inset-0 rounded-3xl ring-2 ring-white/0 group-hover:ring-[#f5a623]/50 transition-all duration-300" />
+              {/* Hover Border Effect */}
+              <div className="absolute inset-0 rounded-3xl ring-2 ring-white/0 group-hover:ring-[#f5a623]/50 transition-all duration-300" />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* News Grid */}
       <section className="relative py-12 pb-20">

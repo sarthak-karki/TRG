@@ -1,7 +1,16 @@
 import Header from "@app/components/header";
 import { FC } from "react";
 import Footer from "@app/components/footer";
-import { Trophy, Heart, Zap, Users, Calendar, MapPin, Target, Award } from "lucide-react";
+import {
+  Trophy,
+  Heart,
+  Zap,
+  Users,
+  Calendar,
+  MapPin,
+  Target,
+  Award,
+} from "lucide-react";
 
 interface Achievement {
   tournament: string;
@@ -17,7 +26,7 @@ const achievements: Achievement[] = [
   { tournament: "MIT Cup", medals: { gold: 0, silver: 1, bronze: 1 } },
   { tournament: "MFC Cup", medals: { gold: 1, silver: 0, bronze: 1 } },
   { tournament: "Thakali Cup", medals: { gold: 1, silver: 0, bronze: 0 } },
-  { tournament: "TRCC Cup", medals: { gold: 1, silver: 1, bronze: 0 } },
+  { tournament: "TRCC Cup", medals: { gold: 2, silver: 1, bronze: 0 } },
   { tournament: "Canberra Cup", medals: { gold: 1, silver: 0, bronze: 0 } },
   { tournament: "GNC Shield", medals: { gold: 0, silver: 3, bronze: 1 } },
   { tournament: "Sahara Cup", medals: { gold: 1, silver: 1, bronze: 0 } },
@@ -27,27 +36,38 @@ const values = [
   {
     icon: <Trophy className="w-8 h-8" />,
     title: "Pride",
-    description: "We take immense pride in our heritage and represent our community with honor on every pitch.",
+    description:
+      "We take immense pride in our heritage and represent our community with honor on every pitch.",
     color: "from-[#f5a623] to-[#ffd93d]",
   },
   {
     icon: <Heart className="w-8 h-8" />,
     title: "Passion",
-    description: "Our love for the beautiful game fuels every training session and every match we play.",
+    description:
+      "Our love for the beautiful game fuels every training session and every match we play.",
     color: "from-red-500 to-pink-500",
   },
   {
     icon: <Zap className="w-8 h-8" />,
     title: "Performance",
-    description: "We strive for excellence and push our limits to achieve greatness together as one team.",
+    description:
+      "We strive for excellence and push our limits to achieve greatness together as one team.",
     color: "from-blue-500 to-cyan-500",
   },
 ];
 
 const stats = [
-  { icon: <Trophy className="w-6 h-6" />, value: "20+", label: "Championships" },
+  {
+    icon: <Trophy className="w-6 h-6" />,
+    value: "20+",
+    label: "Championships",
+  },
   { icon: <Users className="w-6 h-6" />, value: "28+", label: "Squad Players" },
-  { icon: <Calendar className="w-6 h-6" />, value: "12+", label: "Years Active" },
+  {
+    icon: <Calendar className="w-6 h-6" />,
+    value: "12+",
+    label: "Years Active",
+  },
   { icon: <MapPin className="w-6 h-6" />, value: "Sydney", label: "Home Base" },
 ];
 
@@ -65,10 +85,13 @@ const AboutUs: FC = () => {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1929] via-[#0f3460] to-[#0a1929]" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+              backgroundSize: "40px 40px",
+            }}
+          />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
@@ -96,7 +119,9 @@ const AboutUs: FC = () => {
               <div key={index} className="text-center">
                 <div className="flex items-center justify-center gap-2 text-[#0a1929]">
                   {stat.icon}
-                  <span className="text-3xl md:text-4xl font-bold">{stat.value}</span>
+                  <span className="text-3xl md:text-4xl font-bold">
+                    {stat.value}
+                  </span>
                 </div>
                 <p className="text-[#0a1929]/70 text-sm font-semibold uppercase tracking-wider mt-1">
                   {stat.label}
@@ -117,21 +142,27 @@ const AboutUs: FC = () => {
                 Our Story
               </span>
               <h2 className="text-headline text-white mb-6">
-                THE RISING <span className="gradient-text-gold">GURKHAS FC</span>
+                THE RISING{" "}
+                <span className="gradient-text-gold">GURKHAS FC</span>
               </h2>
               <div className="space-y-4 text-white/70 leading-relaxed">
                 <p>
-                  Founded in 2012, The Rising Gurkhas FC has emerged as a formidable force in local football,
-                  embodying the legendary spirit, courage, and determination of the Gurkha warriors.
+                  Founded in 2012, The Rising Gurkhas FC has emerged as a
+                  formidable force in local football, embodying the legendary
+                  spirit, courage, and determination of the Gurkha warriors.
                 </p>
                 <p>
-                  Our club represents more than just football - we are a community united by passion, heritage,
-                  and an unwavering commitment to excellence. From our humble beginnings to becoming championship
-                  contenders, we have consistently demonstrated the values that define us.
+                  Our club represents more than just football - we are a
+                  community united by passion, heritage, and an unwavering
+                  commitment to excellence. From our humble beginnings to
+                  becoming championship contenders, we have consistently
+                  demonstrated the values that define us.
                 </p>
                 <p>
-                  Every match we play, we honor the legacy of resilience and strength that the Gurkha name carries.
-                  Based in Sydney, Australia, we continue to grow and inspire the next generation of players.
+                  Every match we play, we honor the legacy of resilience and
+                  strength that the Gurkha name carries. Based in Sydney,
+                  Australia, we continue to grow and inspire the next generation
+                  of players.
                 </p>
               </div>
             </div>
@@ -144,7 +175,9 @@ const AboutUs: FC = () => {
                   className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#f5a623]/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${value.color} text-white`}>
+                    <div
+                      className={`p-3 rounded-xl bg-gradient-to-br ${value.color} text-white`}
+                    >
                       {value.icon}
                     </div>
                     <div>
@@ -175,7 +208,8 @@ const AboutUs: FC = () => {
               OUR <span className="gradient-text-gold">ACHIEVEMENTS</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              A legacy of success built through dedication, teamwork, and the Gurkha fighting spirit
+              A legacy of success built through dedication, teamwork, and the
+              Gurkha fighting spirit
             </p>
           </div>
 
@@ -183,21 +217,33 @@ const AboutUs: FC = () => {
           <div className="flex justify-center gap-8 md:gap-16 mb-12">
             <div className="text-center">
               <div className="flex items-center justify-center w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#f5a623] to-[#ffd93d] shadow-lg shadow-[#f5a623]/30">
-                <span className="text-3xl font-bold text-[#0a1929]">{totalGold}</span>
+                <span className="text-3xl font-bold text-[#0a1929]">
+                  {totalGold}
+                </span>
               </div>
-              <p className="text-[#f5a623] font-semibold uppercase tracking-wider text-sm">Gold</p>
+              <p className="text-[#f5a623] font-semibold uppercase tracking-wider text-sm">
+                Gold
+              </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 shadow-lg shadow-gray-400/30">
-                <span className="text-3xl font-bold text-[#0a1929]">{totalSilver}</span>
+                <span className="text-3xl font-bold text-[#0a1929]">
+                  {totalSilver}
+                </span>
               </div>
-              <p className="text-gray-400 font-semibold uppercase tracking-wider text-sm">Silver</p>
+              <p className="text-gray-400 font-semibold uppercase tracking-wider text-sm">
+                Silver
+              </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#cd7f32] to-[#daa06d] shadow-lg shadow-[#cd7f32]/30">
-                <span className="text-3xl font-bold text-[#0a1929]">{totalBronze}</span>
+                <span className="text-3xl font-bold text-[#0a1929]">
+                  {totalBronze}
+                </span>
               </div>
-              <p className="text-[#cd7f32] font-semibold uppercase tracking-wider text-sm">Bronze</p>
+              <p className="text-[#cd7f32] font-semibold uppercase tracking-wider text-sm">
+                Bronze
+              </p>
             </div>
           </div>
 
@@ -219,13 +265,19 @@ const AboutUs: FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     {achievement.medals.gold > 0 && (
-                      <span className="badge-gold text-xs px-2 py-1">{achievement.medals.gold}</span>
+                      <span className="badge-gold text-xs px-2 py-1">
+                        {achievement.medals.gold}
+                      </span>
                     )}
                     {achievement.medals.silver > 0 && (
-                      <span className="badge-silver text-xs px-2 py-1">{achievement.medals.silver}</span>
+                      <span className="badge-silver text-xs px-2 py-1">
+                        {achievement.medals.silver}
+                      </span>
                     )}
                     {achievement.medals.bronze > 0 && (
-                      <span className="badge-bronze text-xs px-2 py-1">{achievement.medals.bronze}</span>
+                      <span className="badge-bronze text-xs px-2 py-1">
+                        {achievement.medals.bronze}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -244,8 +296,9 @@ const AboutUs: FC = () => {
               JOIN THE <span className="gradient-text-gold">GURKHA FAMILY</span>
             </h2>
             <p className="text-white/60 mb-8 max-w-2xl mx-auto">
-              Whether you're a player looking to join our squad, a fan wanting to support the team,
-              or a potential sponsor - we'd love to hear from you.
+              Whether you're a player looking to join our squad, a fan wanting
+              to support the team, or a potential sponsor - we'd love to hear
+              from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

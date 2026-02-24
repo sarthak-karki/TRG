@@ -9,36 +9,8 @@ import {
   CarouselPrevious,
 } from "@app/components/ui/carousel";
 import { Users, Shield, Target, Disc } from "lucide-react";
-
-import akashImg from "@app/assets/players/aakashMalla.jpg";
-import amrisImg from "@app/assets/players/amrisKharel.jpg";
-import anishImg from "@app/assets/players/anish_shrestha.jpeg";
-import bikramImg from "@app/assets/players/bikram_shrestha.jpeg";
-import birajImg from "@app/assets/players/birajRai.jpg";
-import bishalImg from "@app/assets/players/bishal_oli.jpeg";
-import bvusanImg from "@app/assets/players/bhusanKc.jpg";
-import chhiringImg from "@app/assets/players/chirringLama.jpg";
-import enojImg from "@app/assets/players/enojNeupane.jpg";
-import frekkImg from "@app/assets/players/frekk.jpeg";
-import kumarImg from "@app/assets/players/kumar_bhandari.jpeg";
-import nabinImg from "@app/assets/players/nabin_kc.jpeg";
-import nirakarImg from "@app/assets/players/nirakar_pradhan.jpeg";
-import parasImg from "@app/assets/players/paras_thapa.jpg";
-import pranishImg from "@app/assets/players/pranish_ranjit.jpeg";
-import rinjijnImg from "@app/assets/players/rinjin_tamang.jpeg";
-import ritishImg from "@app/assets/players/ritish_ranjit.jpeg";
-import roshanLamicchaneImg from "@app/assets/players/roshan_lamichane.jpeg";
-import roshanShahiImg from "@app/assets/players/roshan_shahi.jpeg";
-import samipGauchanImg from "@app/assets/players/samip_gauchan.jpeg";
-import sanaKarkiImg from "@app/assets/players/sana_karki.jpg";
-import sanjeebBistaImg from "@app/assets/players/sanjeeb_bista.jpeg";
-import santoshTamangImg from "@app/assets/players/santosh_tamang.jpeg";
-import sunilBhandariImg from "@app/assets/players/sunil_bhandari.jpeg";
-import sunilKhawasImg from "@app/assets/players/sunil_khawas.jpeg";
-import sunilSharmaImg from "@app/assets/players/sunil_sharma.jpg";
-import sarthakImg from "@app/assets/players/sarthak.jpg";
-import sherabImg from "@app/assets/players/sherab.jpeg";
-import partyboyImg from "@app/assets/players/partyboy.jpeg";
+import playersData from "@app/data/players.json";
+import { getPlayerImage } from "@app/lib/utils";
 
 type Position = "GOALKEEPER" | "DEFENDER" | "MIDFIELDER" | "FORWARD";
 
@@ -48,41 +20,12 @@ interface Player {
   photo: string;
 }
 
-const players: Player[] = [
-  { name: "Sarthak Karki", position: "DEFENDER", photo: sarthakImg },
-  { name: "Sherab Thapa Magar", position: "FORWARD", photo: sherabImg },
-  { name: "Suman KC", position: "GOALKEEPER", photo: partyboyImg },
-  { name: "Akash Malla", position: "FORWARD", photo: akashImg },
-  { name: "Amris Kharel", position: "DEFENDER", photo: amrisImg },
-  { name: "Anish Shrestha", position: "DEFENDER", photo: anishImg },
-  { name: "Biraj Rai", position: "MIDFIELDER", photo: birajImg },
-  { name: "Bishal Oli", position: "MIDFIELDER", photo: bishalImg },
-  { name: "Bhusan KC", position: "FORWARD", photo: bvusanImg },
-  { name: "Chhiring Lama", position: "MIDFIELDER", photo: chhiringImg },
-  { name: "Enoj Neupane", position: "FORWARD", photo: enojImg },
-  { name: "Frekk", position: "MIDFIELDER", photo: frekkImg },
-  { name: "Kumar Bhandari", position: "MIDFIELDER", photo: kumarImg },
-  { name: "Nabin KC", position: "GOALKEEPER", photo: nabinImg },
-  { name: "Nirakar Pradhan", position: "MIDFIELDER", photo: nirakarImg },
-  { name: "Paras Thapa", position: "DEFENDER", photo: parasImg },
-  { name: "Pranish Ranjit", position: "DEFENDER", photo: pranishImg },
-  { name: "Rinjijn Tamang", position: "DEFENDER", photo: rinjijnImg },
-  { name: "Ritish Ranjit", position: "DEFENDER", photo: ritishImg },
-  {
-    name: "Roshan Lamichhane",
-    position: "FORWARD",
-    photo: roshanLamicchaneImg,
-  },
-  { name: "Roshan Shahi", position: "GOALKEEPER", photo: roshanShahiImg },
-  { name: "Samip Gauchan", position: "GOALKEEPER", photo: samipGauchanImg },
-  { name: "Sana Karki", position: "MIDFIELDER", photo: sanaKarkiImg },
-  { name: "Sanjeeb Bista", position: "FORWARD", photo: sanjeebBistaImg },
-  { name: "Santosh Tamang", position: "MIDFIELDER", photo: santoshTamangImg },
-  { name: "Sunil Bhandari", position: "MIDFIELDER", photo: sunilBhandariImg },
-  { name: "Sunil Khawas", position: "DEFENDER", photo: sunilKhawasImg },
-  { name: "Sunil Sharma", position: "DEFENDER", photo: sunilSharmaImg },
-  { name: "Bikram Shrestha", position: "MIDFIELDER", photo: bikramImg },
-];
+// Map players data with dynamic image loading
+const players: Player[] = playersData.map((player) => ({
+  ...player,
+  position: player.position as Position,
+  photo: getPlayerImage(player.photo),
+}));
 
 const positionConfig: Record<
   Position,
