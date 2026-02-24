@@ -10,15 +10,15 @@ import {
 } from "@app/components/ui/carousel";
 import { Users, Shield, Target, Disc } from "lucide-react";
 
-import akashImg from "@app/assets/players/akash_malla.jpeg";
-import amrisImg from "@app/assets/players/amris_kharel.jpeg";
+import akashImg from "@app/assets/players/aakashMalla.jpg";
+import amrisImg from "@app/assets/players/amrisKharel.jpg";
 import anishImg from "@app/assets/players/anish_shrestha.jpeg";
 import bikramImg from "@app/assets/players/bikram_shrestha.jpeg";
-import birajImg from "@app/assets/players/biraj_rai.jpeg";
+import birajImg from "@app/assets/players/birajRai.jpg";
 import bishalImg from "@app/assets/players/bishal_oli.jpeg";
-import bvusanImg from "@app/assets/players/bvusan_kc.jpeg";
-import chhiringImg from "@app/assets/players/chhiring_lama.jpeg";
-import enojImg from "@app/assets/players/enoj_neupane.jpeg";
+import bvusanImg from "@app/assets/players/bhusanKc.jpg";
+import chhiringImg from "@app/assets/players/chirringLama.jpg";
+import enojImg from "@app/assets/players/enojNeupane.jpg";
 import frekkImg from "@app/assets/players/frekk.jpeg";
 import kumarImg from "@app/assets/players/kumar_bhandari.jpeg";
 import nabinImg from "@app/assets/players/nabin_kc.jpeg";
@@ -68,7 +68,11 @@ const players: Player[] = [
   { name: "Pranish Ranjit", position: "DEFENDER", photo: pranishImg },
   { name: "Rinjijn Tamang", position: "DEFENDER", photo: rinjijnImg },
   { name: "Ritish Ranjit", position: "DEFENDER", photo: ritishImg },
-  { name: "Roshan Lamichhane", position: "FORWARD", photo: roshanLamicchaneImg },
+  {
+    name: "Roshan Lamichhane",
+    position: "FORWARD",
+    photo: roshanLamicchaneImg,
+  },
   { name: "Roshan Shahi", position: "GOALKEEPER", photo: roshanShahiImg },
   { name: "Samip Gauchan", position: "GOALKEEPER", photo: samipGauchanImg },
   { name: "Sana Karki", position: "MIDFIELDER", photo: sanaKarkiImg },
@@ -80,7 +84,10 @@ const players: Player[] = [
   { name: "Bikram Shrestha", position: "MIDFIELDER", photo: bikramImg },
 ];
 
-const positionConfig: Record<Position, { color: string; bgColor: string; icon: React.ReactNode }> = {
+const positionConfig: Record<
+  Position,
+  { color: string; bgColor: string; icon: React.ReactNode }
+> = {
   GOALKEEPER: {
     color: "text-amber-400",
     bgColor: "bg-amber-500/20 border-amber-500/40",
@@ -108,9 +115,10 @@ const sortedPlayers = [...players].sort((a, b) => a.name.localeCompare(b.name));
 const MeetTheTeam: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<Position | "ALL">("ALL");
 
-  const filteredPlayers = activeFilter === "ALL"
-    ? sortedPlayers
-    : sortedPlayers.filter((p) => p.position === activeFilter);
+  const filteredPlayers =
+    activeFilter === "ALL"
+      ? sortedPlayers
+      : sortedPlayers.filter((p) => p.position === activeFilter);
 
   const positionCounts = {
     ALL: players.length,
@@ -124,10 +132,13 @@ const MeetTheTeam: React.FC = () => {
     <section className="relative bg-[#0a1929] py-20 px-0 w-full overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: "40px 40px",
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
       {/* Section Header */}
@@ -139,12 +150,15 @@ const MeetTheTeam: React.FC = () => {
           MEET THE <span className="gradient-text-gold">TEAM</span>
         </h2>
         <p className="text-white/60 max-w-2xl mx-auto">
-          The warriors who carry the Gurkha spirit onto the pitch every match day
+          The warriors who carry the Gurkha spirit onto the pitch every match
+          day
         </p>
 
         {/* Position Filters */}
         <div className="flex flex-wrap justify-center gap-2 mt-8">
-          {(["ALL", "GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const).map((pos) => (
+          {(
+            ["ALL", "GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const
+          ).map((pos) => (
             <button
               key={pos}
               onClick={() => setActiveFilter(pos)}
@@ -156,9 +170,11 @@ const MeetTheTeam: React.FC = () => {
             >
               {pos !== "ALL" && positionConfig[pos].icon}
               {pos === "ALL" ? "All Players" : pos}
-              <span className={`text-xs px-1.5 py-0.5 rounded-full ${
-                activeFilter === pos ? "bg-[#0a1929]/20" : "bg-white/10"
-              }`}>
+              <span
+                className={`text-xs px-1.5 py-0.5 rounded-full ${
+                  activeFilter === pos ? "bg-[#0a1929]/20" : "bg-white/10"
+                }`}
+              >
                 {positionCounts[pos]}
               </span>
             </button>
@@ -192,7 +208,10 @@ const MeetTheTeam: React.FC = () => {
                         className="object-cover w-full h-full"
                       />
                       <AvatarFallback className="bg-[#0f3460] text-white/40 text-xl font-semibold w-full h-full rounded-xl flex items-center justify-center">
-                        {player.name.split(" ").map((n) => n[0]).join("")}
+                        {player.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
                       </AvatarFallback>
                     </Avatar>
                   </div>
@@ -202,7 +221,9 @@ const MeetTheTeam: React.FC = () => {
 
                   {/* Position Badge - Top */}
                   <div className="absolute top-4 right-4 z-[3]">
-                    <Badge className={`${positionConfig[player.position].bgColor} ${positionConfig[player.position].color} border px-3 py-1 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5`}>
+                    <Badge
+                      className={`${positionConfig[player.position].bgColor} ${positionConfig[player.position].color} border px-3 py-1 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5`}
+                    >
                       {positionConfig[player.position].icon}
                       {player.position}
                     </Badge>
@@ -240,19 +261,25 @@ const MeetTheTeam: React.FC = () => {
       {/* Bottom Stats */}
       <div className="relative z-10 mt-16 max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {(["GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const).map((pos) => (
-            <div
-              key={pos}
-              className={`text-center p-4 rounded-xl ${positionConfig[pos].bgColor} border backdrop-blur-sm`}
-            >
-              <div className={`text-3xl font-bold ${positionConfig[pos].color}`}>
-                {positionCounts[pos]}
+          {(["GOALKEEPER", "DEFENDER", "MIDFIELDER", "FORWARD"] as const).map(
+            (pos) => (
+              <div
+                key={pos}
+                className={`text-center p-4 rounded-xl ${positionConfig[pos].bgColor} border backdrop-blur-sm`}
+              >
+                <div
+                  className={`text-3xl font-bold ${positionConfig[pos].color}`}
+                >
+                  {positionCounts[pos]}
+                </div>
+                <div
+                  className={`text-sm font-medium ${positionConfig[pos].color} opacity-80`}
+                >
+                  {pos}S
+                </div>
               </div>
-              <div className={`text-sm font-medium ${positionConfig[pos].color} opacity-80`}>
-                {pos}S
-              </div>
-            </div>
-          ))}
+            ),
+          )}
         </div>
       </div>
 
